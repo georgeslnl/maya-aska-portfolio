@@ -1,6 +1,5 @@
 import React from 'react';
 import Link from 'next/link';
-import { link } from 'fs';
 
 const SideNav = () => {
   const works = [
@@ -10,12 +9,6 @@ const SideNav = () => {
     {name: "Noiseless Portraits", link: "/noiseless-portraits"},
     {name: "Lady Liberty", link: "/lady-liberty"},
     {name: "Temporary Teeth", link: "/temporary-teeth"},
-    
-    // "Onna",
-    // "Card",
-    // "Noiseless Portraits",
-    // "Lady Liberty",
-    // "Temporary Teeth"
   ];
 
   return (

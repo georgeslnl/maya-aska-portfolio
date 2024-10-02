@@ -1,5 +1,4 @@
 import React from 'react';
-import Layout from '../components/Layout';
 import Image from "next/image";
 import gentleWoman1 from '../images/gentlewoman/gentlewoman-1.jpg';
 import gentleWoman2 from '../images/gentlewoman/gentlewoman-2.jpg';

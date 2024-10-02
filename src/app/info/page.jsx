@@ -1,5 +1,4 @@
 import React from 'react';
-import Layout from '../components/Layout';
 import { IoDocument, IoMail } from "react-icons/io5";
 
 
