@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 
 const Header = () => {
 
@@ -8,8 +9,12 @@ const Header = () => {
             <div className="flex justify-between items-center px-2">
                 <h1 className="text-2xl  lg:text-7xl">Maya-Aska</h1>
                 <div className="flex space-x-4">
-                    <h2 className="text-base lg:text-2xl text-stone-700">INFO</h2>
-                    <h2 className="text-base lg:text-2xl text-stone-700">INSTAGRAM</h2>
+                    <Link href="/info" className="text-base lg:text-2xl text-stone-700">
+                        INFO
+                    </Link>
+                    <a href="https://www.instagram.com/mayaxaska/" className="text-base lg:text-2xl text-stone-700">
+                        INSTAGRAM
+                    </a>
                 </div>
             </div>
         </header>
