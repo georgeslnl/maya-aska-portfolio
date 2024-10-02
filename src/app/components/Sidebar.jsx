@@ -23,8 +23,8 @@ const SideNav = () => {
       <h2 className="lg:text-3xl text-lg mb-4 italic font-jacquarda">Works</h2>
       <ul className="">
         {works.map((work, index) => (
-          <li key={index} className="text-xs lg:text-lg hover:underline cursor-pointer">
-            <Link href={work.link}>
+          <li key={index} className="text-xs lg:text-lg hover:underline  cursor-pointer">
+            <Link href={work.link} className='focus:text-red-500'>
               {work.name}
             </Link>
           </li>

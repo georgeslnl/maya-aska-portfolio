@@ -20,7 +20,7 @@ const GentlewomanPage = () => {
 
   return (
     <Layout>
-      <div className="w-full lg:w-10/12">
+      <div className="w-11/12 lg:w-10/12 pb-10">
         <h2 className='text-2xl lg:text-4xl mb-8'>Gentlewoman</h2>
         <div className="grid grid-cols-12 gap-2">
           <Image
@@ -63,7 +63,7 @@ const GentlewomanPage = () => {
             layout="responsive"
             width={500}
             height={300}
-            className={'col-span-6 row-start-4 col-start-7'}
+            className={'col-span-6 row-start-4 col-start-1'}
           />
           <Image
             src={gentleWoman5}
