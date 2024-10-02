@@ -11,7 +11,7 @@ const SideNav = () => {
   ];
 
   return (
-    <nav className="h-full w-64 p-8 bg-white text-black font-cormorant">
+    <nav className="sticky top-0 h-full w-1/5 p-1 font-cormorant">
       <h2 className="text-3xl mb-6 font-jacquarda">Works</h2>
       <ul className="space-y-2">
         {works.map((work, index) => (
