@@ -11,6 +11,10 @@ module.exports = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontFamily: {
+        'cormorant': ['Cormorant Garamond', 'serif'],
+        'jacquarda': ['Jacquarda Bastarda 9', 'cursive'],
+      },
     },
   },
   plugins: [],
