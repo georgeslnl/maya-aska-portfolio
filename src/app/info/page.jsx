@@ -1,6 +1,5 @@
 import React from 'react';
 import Layout from '../components/Layout';
-import { MdMailOutline } from "react-icons/md";
 import { IoDocument, IoMail } from "react-icons/io5";
 
 
@@ -8,7 +7,7 @@ import { IoDocument, IoMail } from "react-icons/io5";
 const InfoPage = () => {
   return (
     <Layout>
-      <div className="flex flex-col w-10/12 lg:w-full max-w-4xl font-cormorant">
+      <div className="flex flex-col w-10/12 lg:w-11/12 font-cormorant">
         <h2 className="text-2xl lg:text-4xl mb-8">Info</h2>
         
         <p className="text-lg lg:text-2xl ">
@@ -22,7 +21,7 @@ const InfoPage = () => {
           <p> Email - mayaxaska@gmail.com</p>
           </div>
           <div className="flex items-center gap-1 group">
-            < IoDocument className='group-hover:animate-bounce' />
+            <IoDocument className='group-hover:animate-bounce' />
             <p>CV upon request</p>
             </div>
           </div>

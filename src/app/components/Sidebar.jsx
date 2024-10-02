@@ -11,7 +11,7 @@ const SideNav = () => {
   ];
 
   return (
-    <nav className="px-2 py-1 font-cormorant min-w-fit">
+    <nav className="px-2 py-1 font-cormorant min-w-fit ">
       <h2 className="lg:text-3xl text-lg mb-4 italic font-jacquarda">Works</h2>
       <ul className="">
         {works.map((work, index) => (

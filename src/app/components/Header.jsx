@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 
+
 const Header = () => {
 
 
@@ -11,10 +12,10 @@ const Header = () => {
                     <h1 className="text-2xl  lg:text-7xl">Maya-Aska</h1>
                 </Link>
                 <div className="flex space-x-4">
-                    <Link href="/info" className="text-base lg:text-2xl text-stone-700 focus:animate-ping">
+                    <Link href="/info" className="text-base lg:text-2xl text-stone-700">
                         INFO
                     </Link>
-                    <a href="https://www.instagram.com/mayaxaska/" className="text-base lg:text-2xl text-stone-700 focus:animate-pulse">
+                    <a href="https://www.instagram.com/mayaxaska/" className="text-base lg:text-2xl text-stone-700">
                         INSTAGRAM
                     </a>
                 </div>
