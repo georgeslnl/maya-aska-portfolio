@@ -11,11 +11,11 @@ const SideNav = () => {
   ];
 
   return (
-    <nav className="sticky top-0 h-full w-1/5 p-1 font-cormorant">
-      <h2 className="text-3xl mb-6 font-jacquarda">Works</h2>
-      <ul className="space-y-2">
+    <nav className="px-2 py-1 font-cormorant">
+      <h2 className="lg:text-3xl text-lg mb-4 italic font-jacquarda">Works</h2>
+      <ul className="">
         {works.map((work, index) => (
-          <li key={index} className="text-lg hover:underline cursor-pointer">
+          <li key={index} className="text-xs lg:text-lg hover:underline cursor-pointer">
             {work}
           </li>
         ))}
