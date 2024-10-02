@@ -6,7 +6,6 @@ import { IoDocument, IoMail } from "react-icons/io5";
 
 const InfoPage = () => {
   return (
-    <Layout>
       <div tabIndex={1} className="flex flex-col w-10/12 lg:w-11/12 font-cormorant">
         <h2 className="text-2xl lg:text-4xl mb-8">Info</h2>
         
@@ -27,7 +26,6 @@ const InfoPage = () => {
           </div>
         </div>
       </div>
-    </Layout>
   );
 };
 

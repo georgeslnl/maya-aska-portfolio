@@ -12,10 +12,10 @@ const Header = () => {
                     <h1 className="text-2xl  lg:text-7xl">Maya-Aska</h1>
                 </Link>
                 <div className="flex space-x-4">
-                    <Link href="/info" className="text-base lg:text-2xl text-stone-700">
+                    <Link href="/info" className="text-base lg:text-2xl text-stone-700 focus:text-red-700">
                         INFO
                     </Link>
-                    <a href="https://www.instagram.com/mayaxaska/" className="text-base lg:text-2xl text-stone-700">
+                    <a href="https://www.instagram.com/mayaxaska/" className="text-base lg:text-2xl text-stone-700 focus:text-red-700">
                         INSTAGRAM
                     </a>
                 </div>

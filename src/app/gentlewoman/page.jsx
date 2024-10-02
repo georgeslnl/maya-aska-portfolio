@@ -19,7 +19,7 @@ const GentlewomanPage = () => {
   ];
 
   return (
-    <Layout>
+    <>
       <div className="w-11/12 lg:w-10/12 pb-10">
         <h2 className='text-2xl lg:text-4xl mb-8'>Gentlewoman</h2>
         <div className="grid grid-cols-12 gap-2">
@@ -85,7 +85,7 @@ const GentlewomanPage = () => {
           
         </div>
       </div>
-    </Layout>
+    </>
   );
 };
 
