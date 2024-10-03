@@ -1,7 +1,7 @@
 import Image from 'next/image';
 
 const ImageGrid = ({ images }) => (
-    <div className="grid grid-cols-12 gap-2">
+    <div className="grid grid-cols-12 gap-1">
       {images.map((image, index) => (
         <Image
           key={index}

@@ -1,5 +1,4 @@
 import React from 'react';
-import Image from "next/image";
 import Credits from '../components/Credits';
 import ImageGrid from '../components/ImageGrid';
 import gentleWoman1 from '../images/gentlewoman/gentlewoman-1.jpg';
