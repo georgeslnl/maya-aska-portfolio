@@ -1,6 +1,4 @@
 import React from 'react';
-import Credits from '../components/Credits';
-import ImageGrid from '../components/ImageGrid';
 import Image from 'next/image';
 import np1 from '../images/noiseless-portraits/np-1.jpg';
 import np2 from '../images/noiseless-portraits/np-2.jpg';
@@ -9,22 +7,6 @@ import np4 from '../images/noiseless-portraits/np-4.jpg';
 import np5 from '../images/noiseless-portraits/np-5.jpg';
 import np6 from '../images/noiseless-portraits/np-6.jpg';
 
-const imageData = [
-    { src: np1, alt: "Noiseless Portraits 1", span: 12 },
-    { src: np2, alt: "Noiseless Portraits 2", span: 12 },
-    { src: np3, alt: "Noiseless Portraits 3", span: 6 },
-    { src: np4, alt: "Noiseless Portraits 4", span: 6 },
-    { src: np5, alt: "Noiseless Portraits 5", span: 12 },
-    { src: np6, alt: "Noiseless Portraits 6", span: 12 },
-];
-
-const credits = [
-    { role: "Photography", name: "Maya-Aska" },
-    { role: "Model", name: "Joanna" },
-    { role: "Model", name: "Ellie" },
-    { role: "Stylist", name: "Isabelle Burnett" },
-    { role: "Model", name: "Lia" },
-];
 
 const NoiselessPortraitsPage = () => {
 
