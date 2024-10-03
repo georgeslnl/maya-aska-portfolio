@@ -18,7 +18,7 @@ const SideNav = () => {
 
   return (
     <nav className="px-2 py-1 font-cormorant min-w-fit group">
-      <h2 className="lg:text-3xl text-lg mb-4 italic font-jacquarda">Works</h2>
+      <Link href="/works" className='lg:text-3xl text-lg mb-4 italic hover:underline'>Works</Link>
       <ul className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
         {works.map((work, index) => (
           <li key={index} className="text-xs lg:text-lg hover:underline  cursor-pointer">
