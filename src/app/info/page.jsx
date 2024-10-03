@@ -8,7 +8,7 @@ export const metadata = {
 const InfoPage = () => {
   return (
       <div tabIndex={1} className="flex flex-col w-10/12 lg:w-11/12 font-cormorant">
-        <h2 className="text-2xl lg:text-4xl mb-8">Info</h2>
+        <h2 className="text-base lg:text-2xl mb-8">Info</h2>
         
         <p className="text-lg lg:text-2xl ">
           I am Maya-Aska. I am a London based photographer. My upbringing in Paris, Tokyo and London has shaped a multi-cultural lens for me to examine the world and its traditional and contemporary values. Work experience includes: photography assistant to James Perolls including campaign for Ader Error, production for Wonderland Magazine.

@@ -15,10 +15,10 @@ const NoiselessPortraitsPage = () => {
 
     return (
         <div className="w-11/12 lg:w-10/12 pb-10">
-            <h2 className='text-2xl lg:text-4xl mb-8'>Noiseless Portraits</h2>
+            <h2 className='text-base lg:text-2xl mb-8'>Noiseless Portraits</h2>
             <div>
                 <div className="grid grid-cols-12 gap-1">
-                <p className='text-xs lg:text-base col-span-12 p-2'>
+                <p className='text-xs lg:text-base col-span-12 my-5 px-2'>
                     Photography - Maya-Aska
                 </p>
                         <Image

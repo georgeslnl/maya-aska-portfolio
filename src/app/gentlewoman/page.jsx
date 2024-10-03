@@ -16,7 +16,7 @@ const imageData = [
   { src: gentleWoman1, alt: "Gentlewoman 1", span: 6 },
   { src: gentleWoman2, alt: "Gentlewoman 2", span: 6 },
   { src: gentleWoman3, alt: "Gentlewoman 3", span: 6, rowStart: 3 },
-  { src: gentleWoman4, alt: "Gentlewoman 4", span: 6, rowStart: 4, colStart: 1 },
+  { src: gentleWoman4, alt: "Gentlewoman 4", span: 6, rowStart: 4 },
   { src: gentleWoman5, alt: "Gentlewoman 5", span: 6, rowStart: 5 },
   { src: gentleWoman6, alt: "Gentlewoman 6", span: 6, rowStart: 5 },
 ];
@@ -36,7 +36,7 @@ const GentlewomanPage = () => {
 
   return (
       <div className="w-11/12 lg:w-10/12 pb-10">
-        <h2 className='text-2xl lg:text-4xl mb-8'>Gentlewoman</h2>
+        <h2 className='text-base lg:text-2xl mb-8'>Gentlewoman</h2>
         <div>
           <ImageGrid images={imageData.slice(0, 2)} />
           <Credits credits={credits} />

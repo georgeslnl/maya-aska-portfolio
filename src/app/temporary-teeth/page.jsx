@@ -13,7 +13,7 @@ const TemporaryTeethPage = () => {
 
     return (
         <div className="w-11/12 lg:w-10/12 pb-10">
-            <h2 className='text-2xl lg:text-4xl mb-8'>Temporary Teeth</h2>
+            <h2 className='text-base lg:text-2xl mb-8'>Temporary Teeth</h2>
             <div>
                 <div className="grid grid-cols-12 gap-1">
 

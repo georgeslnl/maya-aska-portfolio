@@ -7,16 +7,16 @@ const Header = () => {
 
     return (
         <header className="">
-            <div className="flex justify-between items-center px-2">
+            <div className="flex justify-between items-center px-2 mt-5 mb-12">
                 <Link href="/">
-                    <h1 className="text-2xl  lg:text-7xl">Maya-Aska</h1>
+                    <h1 className="text-3xl lg:text-8xl p-0">Maya-Aska</h1>
                 </Link>
-                <div className="flex space-x-4">
-                    <Link href="/info" className="text-base lg:text-2xl text-stone-700 focus:text-red-700">
-                        INFO
+                <div className="flex gap-4">
+                    <Link href="/info" className="lg:text-2xl text-base italic font-jacquarda text-stone-700 focus:text-red-700">
+                        Info
                     </Link>
-                    <a href="https://www.instagram.com/mayaxaska/" className="text-base lg:text-2xl text-stone-700 focus:text-red-700">
-                        INSTAGRAM
+                    <a href="https://www.instagram.com/mayaxaska/" className="lg:text-2xl text-base italic font-jacquarda text-stone-700 focus:text-red-700">
+                        Instagram
                     </a>
                 </div>
             </div>
