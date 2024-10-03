@@ -7,6 +7,10 @@ import ladyliberty3 from '../images/lady-liberty/lady-liberty-3.jpg';
 import ladyliberty4 from '../images/lady-liberty/lady-liberty-4.jpg';
 import ladyliberty5 from '../images/lady-liberty/lady-liberty-5.jpg';
 
+export const metadata = {
+    title: "Lady Liberty"
+};
+
 const imageData = [
     { src: ladyliberty1, alt: "Lady Liberty 1", span: 6 },
     { src: ladyliberty2, alt: "Lady Liberty 2", span: 6 },

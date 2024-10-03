@@ -27,7 +27,11 @@ const imageData = [
   { src: home11, alt: "Home 11", span: 6 },
 ];
 
-
+export const metadata = {
+  title: {
+    absolute: "Maya-Aska",
+  }
+};
 
 export default function Home() {
   return (

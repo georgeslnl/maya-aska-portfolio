@@ -1,7 +1,9 @@
 import React from 'react';
 import { IoDocument, IoMail } from "react-icons/io5";
 
-
+export const metadata = {
+  title: "Info"
+};
 
 const InfoPage = () => {
   return (

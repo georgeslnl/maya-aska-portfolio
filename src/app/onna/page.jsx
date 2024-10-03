@@ -12,6 +12,10 @@ import onna9 from '../images/onna/onna-9.jpg';
 import onna10 from '../images/onna/onna-10.jpg';
 import onna11 from '../images/onna/onna-11.jpg';
 
+export const metadata = {
+    title: "Onna"
+};
+
 const OnnaPage = () => {
     return (
         <div className="w-11/12 lg:w-10/12 pb-10">

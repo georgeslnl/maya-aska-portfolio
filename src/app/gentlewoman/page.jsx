@@ -8,6 +8,10 @@ import gentleWoman4 from '../images/gentlewoman/gentlewoman-4.jpg';
 import gentleWoman5 from '../images/gentlewoman/gentlewoman-5.jpg';
 import gentleWoman6 from '../images/gentlewoman/gentlewoman-6.jpg';
 
+export const metadata = {
+  title: "Gentlewoman"
+};
+
 const imageData = [
   { src: gentleWoman1, alt: "Gentlewoman 1", span: 6 },
   { src: gentleWoman2, alt: "Gentlewoman 2", span: 6 },

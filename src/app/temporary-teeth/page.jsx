@@ -5,6 +5,10 @@ import tt2 from '../images/temporary-teeth/temporary-teeth-2.jpg';
 import tt3 from '../images/temporary-teeth/temporary-teeth-3.jpg';
 import tt4 from '../images/temporary-teeth/temporary-teeth-4.jpg';
 
+export const metadata = {
+    title: "Temporary Teeth"
+};
+
 const TemporaryTeethPage = () => {
 
     return (

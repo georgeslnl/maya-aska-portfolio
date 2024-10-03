@@ -7,6 +7,9 @@ import np4 from '../images/noiseless-portraits/np-4.jpg';
 import np5 from '../images/noiseless-portraits/np-5.jpg';
 import np6 from '../images/noiseless-portraits/np-6.jpg';
 
+export const metadata = {
+    title: "Noiseless Portraits"
+};
 
 const NoiselessPortraitsPage = () => {
 

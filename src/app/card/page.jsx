@@ -8,6 +8,10 @@ import card4 from '../images/card/card-4.jpg';
 import card5 from '../images/card/card-5.jpg';
 import card6 from '../images/card/card-6.jpg';
 
+export const metadata = {
+    title: "Card"
+};
+
 const imageData = [
     { src: card1, alt: "Card 1", span: 6 },
     { src: card2, alt: "Card 2", span: 6 },
