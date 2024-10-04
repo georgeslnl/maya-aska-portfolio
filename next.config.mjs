@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+
+import { withAnimations } from 'animated-tailwindcss';
+
+const nextConfig =  withAnimations({
     webpack: (config, { isServer }) => {
       // Add a rule to handle MP3 files
       config.module.rules.push({
@@ -17,6 +20,6 @@ const nextConfig = {
   
       return config;
     },
-  };
+  });
   
   export default nextConfig;
