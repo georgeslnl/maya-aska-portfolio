@@ -59,7 +59,7 @@ const WorksPage = () => {
   const [ref17, isVisible17] = useVisibilityState();
 
   return (
-    <div className="w-11/12 lg:w-10/12 pb-10">
+    <div className="w-11/12 lg:w-10/12 mb-10">
       <p className="text-base lg:text-2xl col-end-12 text-end">2024</p>
       <div className="grid grid-cols-12 gap-3">
         <div ref={ref1} className="col-span-4 col-end-8">
