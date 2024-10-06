@@ -2,12 +2,10 @@
 import React from 'react';
 import Header from './Header';
 import SideNav from './Sidebar';
-import CustomCursor from './CustomCursor';
 
 const Layout = ({ children }) => {
   return (
     <div className="flex flex-col h-screen overflow-hidden px-4">
-      <CustomCursor />
       <Header />
       <div className="flex flex-row flex-grow overflow-hidden">
         <SideNav />

@@ -15,10 +15,10 @@ const imageData = [
     { src: ladyliberty1, alt: "Lady Liberty 1", span: 6 },
     { src: ladyliberty2, alt: "Lady Liberty 2", span: 6 },
     { src: ladyliberty3, alt: "Lady Liberty 3", span: 12 },
-    { src: ladyliberty4, alt: "Lady Liberty 4", span: 6, colStart: 4 },
+    { src: ladyliberty4, alt: "Lady Liberty 4", span: 6, colStart: 3 },
     { src: ladyliberty5, alt: "Lady Liberty 5", span: 12 }
 ];
-
+    
 const credits = [
     { role: "Creative Direction & Photography", name: "Maya-Aska" },
     { role: "Stylist", name: "Moni Jiang" },

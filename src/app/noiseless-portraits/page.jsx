@@ -25,7 +25,8 @@ const NoiselessPortraitsPage = () => {
                             key={1}
                             src={np1}
                             alt="Noiseless Portraits 1"
-                            // layout="responsive"
+                            layout="responsive"
+                            // fill
                             width={500}
                             height={300}
                             className={`col-span-12`}
@@ -37,7 +38,8 @@ const NoiselessPortraitsPage = () => {
                             key={2}
                             src={np2}
                             alt="Noiseless Portraits 2"
-                            // layout="responsive"
+                            layout="responsive"
+                            // fill
                             width={500}
                             height={300}
                             className={`col-span-12`}
@@ -50,7 +52,8 @@ const NoiselessPortraitsPage = () => {
                             key={3}
                             src={np3}
                             alt="Noiseless Portraits 3"
-                            // layout="responsive"
+                            layout="responsive"
+                            // fill
                             width={500}
                             height={300}
                             className={`col-span-6 row-start-6`}
@@ -59,7 +62,8 @@ const NoiselessPortraitsPage = () => {
                             key={4}
                             src={np4}
                             alt="Noiseless Portraits 4"
-                            // layout="responsive"
+                            layout="responsive"
+                            // fill
                             width={500}
                             height={300}
                             className={`col-span-6 row-start-6`}
@@ -72,7 +76,8 @@ const NoiselessPortraitsPage = () => {
                             key={5}
                             src={np5}
                             alt="Noiseless Portraits 5"
-                            // layout="responsive"
+                            layout="responsive"
+                            // fill
                             width={500}
                             height={300}
                             className={`col-span-12`}
@@ -84,7 +89,8 @@ const NoiselessPortraitsPage = () => {
                             key={6}
                             src={np6}
                             alt="Noiseless Portraits 6"
-                            // layout="responsive"
+                            layout="responsive"
+                            // fill
                             width={500}
                             height={300}
                             className={`col-span-12`}

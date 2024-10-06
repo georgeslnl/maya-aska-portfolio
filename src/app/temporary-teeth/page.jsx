@@ -21,7 +21,7 @@ const TemporaryTeethPage = () => {
                         key={1}
                         src={tt1}
                         alt="Temporary Teeth 1"
-                        // layout="responsive"
+                        layout="responsive"
                         width={500}
                         height={300}
                         className={`col-span-6`}
@@ -30,7 +30,7 @@ const TemporaryTeethPage = () => {
                         key={2}
                         src={tt2}
                         alt="Temporary Teeth 2"
-                        // layout="responsive"
+                        layout="responsive"
                         width={500}
                         height={300}
                         className={`col-span-6`}
@@ -53,7 +53,7 @@ const TemporaryTeethPage = () => {
                         key={3}
                         src={tt3}
                         alt="Temporary Teeth 3"
-                        // layout="responsive"
+                        layout="responsive"
                         width={500}
                         height={300}
                         className={`col-span-6`}
@@ -62,7 +62,7 @@ const TemporaryTeethPage = () => {
                         key={4}
                         src={tt4}
                         alt="Temporary Teeth 4"
-                        // layout="responsive"
+                        layout="responsive"
                         width={500}
                         height={300}
                         className={`col-span-6`}
