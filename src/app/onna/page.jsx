@@ -25,7 +25,7 @@ const OnnaPage = () => {
                 key={1}
                 src={onna1}
                 alt="Onna 1"
-                layout="responsive"
+                // layout="responsive"
                 width={500}
                 height={300}
                 className={`col-span-6`}
@@ -34,7 +34,7 @@ const OnnaPage = () => {
                 key={2}
                 src={onna2}
                 alt="Onna 2"
-                layout="responsive"
+                // layout="responsive"
                 width={500}
                 height={300}
                 className={`col-span-6`}
@@ -63,7 +63,7 @@ And the dilemma women face: to conform to those social standards or let one’s 
                 key={3}
                 src={onna3}
                 alt="Onna 3"
-                layout="responsive"
+                // layout="responsive"
                 width={500}
                 height={300}
                 className={`col-span-12`}
@@ -77,7 +77,7 @@ Japanese people crave this crease on their eyelids. However, the products and se
                 key={4}
                 src={onna4}
                 alt="Onna 4"
-                layout="responsive"
+                // layout="responsive"
                 width={500}
                 height={300}
                 className={`col-span-12`}
@@ -91,7 +91,7 @@ Japanese people crave this crease on their eyelids. However, the products and se
                 key={5}
                 src={onna1}
                 alt="Onna 5"
-                layout="responsive"
+                // layout="responsive"
                 width={500}
                 height={300}
                 className={`col-span-9 col-start-3`}
@@ -103,7 +103,7 @@ Japanese people crave this crease on their eyelids. However, the products and se
                 key={6}
                 src={onna5}
                 alt="Onna 6"
-                layout="responsive"
+                // layout="responsive"
                 width={500}
                 height={300}
                 className={`col-span-12`}
@@ -112,7 +112,7 @@ Japanese people crave this crease on their eyelids. However, the products and se
                 key={7}
                 src={onna6}
                 alt="Onna 7"
-                layout="responsive"
+                // layout="responsive"
                 width={500}
                 height={300}
                 className={`col-span-12`}
@@ -126,7 +126,7 @@ Japanese people crave this crease on their eyelids. However, the products and se
                 key={8}
                 src={onna7}
                 alt="Onna 8"
-                layout="responsive"
+                // layout="responsive"
                 width={500}
                 height={300}
                 className={`col-span-6`}
@@ -135,7 +135,7 @@ Japanese people crave this crease on their eyelids. However, the products and se
                 key={9}
                 src={onna8}
                 alt="Onna 9"
-                layout="responsive"
+                // layout="responsive"
                 width={500}
                 height={300}
                 className={`col-span-6`}
@@ -149,7 +149,7 @@ This preference towards fair complexion still remains today. Although tan skin w
                 key={10}
                 src={onna9}
                 alt="Onna 10"
-                layout="responsive"
+                // layout="responsive"
                 width={500}
                 height={300}
                 className={`col-span-12`}
@@ -164,7 +164,7 @@ This preference towards fair complexion still remains today. Although tan skin w
                 key={11}
                 src={onna10}
                 alt="Onna 11"
-                layout="responsive"
+                // layout="responsive"
                 width={500}
                 height={300}
                 className={`col-span-12`}
@@ -176,7 +176,7 @@ This preference towards fair complexion still remains today. Although tan skin w
                 key={12}
                 src={onna2}
                 alt="Onna 12"
-                layout="responsive"
+                // layout="responsive"
                 width={500}
                 height={300}
                 className={`col-span-12`}
@@ -185,7 +185,7 @@ This preference towards fair complexion still remains today. Although tan skin w
                 key={12}
                 src={onna11}
                 alt="Onna 13"
-                layout="responsive"
+                // layout="responsive"
                 width={500}
                 height={300}
                 className={`col-span-12`}
