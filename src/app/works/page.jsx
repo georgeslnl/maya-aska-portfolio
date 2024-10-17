@@ -2,6 +2,11 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import FadeUp from '../components/FadeUp';
+import useSound from 'use-sound';
+import pageTurn from '../sounds/page_turn.mp3';
+
+// Import all images
 import onna9 from '../images/onna/onna-9.jpg';
 import onna6 from '../images/onna/onna-6.jpg';
 import onna7 from '../images/onna/onna-7.jpg';
@@ -19,107 +24,81 @@ import np7 from '../images/noiseless-portraits/np-7.jpg';
 import np1 from '../images/noiseless-portraits/np-1.jpg';
 import tt2 from '../images/temporary-teeth/temporary-teeth-2.jpg';
 import tt1 from '../images/temporary-teeth/temporary-teeth-1.jpg';
-import useVisibilityState from '../hooks/useVisibilityState'; 
 
-const ImageWithHover = ({ src, alt, work, isVisible, className }) => {
+// Define works data
+const worksData = {
+  '2024': [
+    { title: 'Onna', image: onna9, alt: 'Onna 9', href: '/onna', className: 'col-span-4 col-end-8' },
+    { title: 'Onna', image: onna6, alt: 'Onna 6', href: '/onna', className: 'col-span-5 col-end-13' },
+    { title: 'Onna', image: onna7, alt: 'Onna 7', href: '/onna', className: 'col-span-4 col-end-9' },
+    { title: 'Onna', image: onna10, alt: 'Onna 10', href: '/onna', className: 'col-span-4 col-end-13' },
+    { title: 'Card', image: card6, alt: 'Card 6', href: '/card', className: 'col-span-4 col-end-5' },
+    { title: 'Card', image: card4, alt: 'Card 4', href: '/card', className: 'col-span-4 col-end-9' },
+    { title: 'Card', image: card1, alt: 'Card 1', href: '/card', className: 'col-span-4 col-end-13' },
+  ],
+  '2023': [
+    { title: 'Gentlewoman', image: gentlewoman3, alt: 'Gentlewoman 3', href: '/gentlewoman', className: 'col-span-4 col-end-9' },
+    { title: 'Gentlewoman', image: gentlewoman4, alt: 'Gentlewoman 4', href: '/gentlewoman', className: 'col-span-4 col-end-13' },
+    { title: 'Lady Liberty', image: ladyliberty4, alt: 'Lady Liberty 4', href: '/lady-liberty', className: 'col-span-4 col-end-13' },
+    { title: 'Lady Liberty', image: ladyliberty5, alt: 'Lady Liberty 5', href: '/lady-liberty', className: 'col-span-6 col-end-9 row-start-2' },
+    { title: 'Noiseless Portraits', image: np4, alt: 'Noiseless Portraits 4', href: '/noiseless-portraits', className: 'col-span-4 col-end-7' },
+    { title: 'Noiseless Portraits', image: np6, alt: 'Noiseless Portraits 6', href: '/noiseless-portraits', className: 'col-span-6 col-end-13' },
+    { title: 'Noiseless Portraits', image: np1, alt: 'Noiseless Portraits 1', href: '/noiseless-portraits', className: 'col-span-6 col-end-9' },
+    { title: 'Noiseless Portraits', image: np7, alt: 'Noiseless Portraits 7', href: '/noiseless-portraits', className: 'col-span-4 col-end-13' },
+  ],
+  '2022': [
+    { title: 'Temporary Teeth', image: tt2, alt: 'Temporary Teeth 2', href: '/temporary-teeth', className: 'col-span-4 col-end-9' },
+    { title: 'Temporary Teeth', image: tt1, alt: 'Temporary Teeth 1', href: '/temporary-teeth', className: 'col-span-4 col-end-13' },
+  ],
+};
+
+// WorkItem component
+const WorkItem = ({ title, image, alt, href, className }) => {
+  
+
   return (
-    <Link href={`/${work.toLowerCase().replace(' ', '-')}`} className={`block relative group overflow-hidden hover:scale-105 transition duration-500`}>
-      <Image
-        src={src}
-        alt={alt}
-        layout="responsive"
-        width={500}
-        height={300}
-        className={`transition-opacity animate-slow duration-500 ${isVisible ? 'animate-fadeInUp opacity-100' : 'opacity-0'} ${className}`}
-      />
-      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gray-500 bg-opacity-50">
-        <span className="text-white text-base lg:text-2xl font-bold">{work}</span>
-      </div>
-    </Link>
+    <FadeUp className={className} playSound={true}>
+      <Link href={href} className="block relative group overflow-hidden hover:scale-105 transition duration-500">
+        <Image src={image} alt={alt} layout="responsive" width={500} height={300} />
+        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gray-500 bg-opacity-50">
+          <span className="text-white text-base lg:text-2xl font-bold">{title}</span>
+        </div>
+      </Link>
+    </FadeUp>
   );
 };
 
+// WorkGroup component
+const WorkGroup = ({ works }) => {
+
+  const [play] = useSound(pageTurn);
+
+  return (<div className="grid grid-cols-12 gap-3">
+    {works.map((work, index) => (
+      <WorkItem
+        key={index}
+        {...work}
+        onClick={play}
+      />
+    ))}
+  </div>
+  );
+};
+
+// Main WorksPage component
 const WorksPage = () => {
-  const [ref1, isVisible1] = useVisibilityState();
-  const [ref2, isVisible2] = useVisibilityState();
-  const [ref3, isVisible3] = useVisibilityState();
-  const [ref4, isVisible4] = useVisibilityState();
-  const [ref5, isVisible5] = useVisibilityState();
-  const [ref6, isVisible6] = useVisibilityState();
-  const [ref7, isVisible7] = useVisibilityState();
-  const [ref8, isVisible8] = useVisibilityState();
-  const [ref9, isVisible9] = useVisibilityState();
-  const [ref10, isVisible10] = useVisibilityState();
-  const [ref11, isVisible11] = useVisibilityState();
-  const [ref12, isVisible12] = useVisibilityState();
-  const [ref13, isVisible13] = useVisibilityState();
-  const [ref14, isVisible14] = useVisibilityState();
-  const [ref15, isVisible15] = useVisibilityState();
-  const [ref16, isVisible16] = useVisibilityState();
-  const [ref17, isVisible17] = useVisibilityState();
+  const sortedYears = Object.keys(worksData).sort((a, b) => parseInt(b) - parseInt(a));
 
   return (
     <div className="w-11/12 lg:w-10/12 mb-10">
-      <p className="text-base lg:text-2xl col-end-12 text-end">2024</p>
-      <div className="grid grid-cols-12 gap-3">
-        <div ref={ref1} className="col-span-4 col-end-8">
-          <ImageWithHover src={onna9} alt="Onna 9" work="Onna" isVisible={isVisible1} />
+      {sortedYears.map((year) => (
+        <div key={year}>
+          <FadeUp>
+            <p className="text-base lg:text-2xl col-end-12 text-end">{year}</p>
+          </FadeUp>
+          <WorkGroup works={worksData[year]} />
         </div>
-        <div ref={ref2} className="col-span-5 col-end-13">
-          <ImageWithHover src={onna6} alt="Onna 6" work="Onna" isVisible={isVisible2} />
-        </div>
-        <div ref={ref3} className="col-span-4 col-end-9">
-          <ImageWithHover src={onna7} alt="Onna 7" work="Onna" isVisible={isVisible3} />
-        </div>
-        <div ref={ref4} className="col-span-4 col-end-13">
-          <ImageWithHover src={onna10} alt="Onna 10" work="Onna" isVisible={isVisible4} />
-        </div>
-        <div ref={ref5} className="col-span-4 col-end-5">
-          <ImageWithHover src={card6} alt="Card 6" work="Card" isVisible={isVisible5} />
-        </div>
-        <div ref={ref6} className="col-span-4 col-end-9">
-          <ImageWithHover src={card4} alt="Card 4" work="Card" isVisible={isVisible6} />
-        </div>
-        <div ref={ref7} className="col-span-4 col-end-13">
-          <ImageWithHover src={card1} alt="Card 1" work="Card" isVisible={isVisible7} />
-        </div>
-      </div>
-      <p className="text-base lg:text-2xl col-end-12 text-end">2023</p>
-      <div className="grid grid-cols-12 gap-3">
-        <div ref={ref8} className="col-span-4 col-end-9">
-          <ImageWithHover src={gentlewoman3} alt="Gentlewoman 3" work="Gentlewoman" isVisible={isVisible8} />
-        </div>
-        <div ref={ref9} className="col-span-4 col-end-13">
-          <ImageWithHover src={gentlewoman4} alt="Gentlewoman 4" work="Gentlewoman" isVisible={isVisible9} />
-        </div>
-        <div ref={ref10} className="col-span-4 col-end-13">
-          <ImageWithHover src={ladyliberty4} alt="Lady Liberty 4" work="Lady Liberty" isVisible={isVisible10} />
-        </div>
-        <div ref={ref11} className="col-span-6 col-end-9 row-start-2">
-          <ImageWithHover src={ladyliberty5} alt="Lady Liberty 5" work="Lady Liberty" isVisible={isVisible11} />
-        </div>
-        <div ref={ref12} className="col-span-4 col-end-7">
-          <ImageWithHover src={np4} alt="Noiseless Portraits 4" work="Noiseless Portraits" isVisible={isVisible12} />
-        </div>
-        <div ref={ref13} className="col-span-6 col-end-13">
-          <ImageWithHover src={np6} alt="Noiseless Portraits 6" work="Noiseless Portraits" isVisible={isVisible13} />
-        </div>
-        <div ref={ref14} className="col-span-6 col-end-9">
-          <ImageWithHover src={np1} alt="Noiseless Portraits 1" work="Noiseless Portraits" isVisible={isVisible14} />
-        </div>
-        <div ref={ref15} className="col-span-4 col-end-13">
-          <ImageWithHover src={np7} alt="Noiseless Portraits 7" work="Noiseless Portraits" isVisible={isVisible15} />
-        </div>
-      </div>
-      <p className="text-base lg:text-2xl col-end-12 text-end">2022</p>
-      <div className="grid grid-cols-12 gap-3">
-        <div ref={ref16} className="col-span-4 col-end-9">
-          <ImageWithHover src={tt2} alt="Temporary Teeth 2" work="Temporary Teeth" isVisible={isVisible16} />
-        </div>
-        <div ref={ref17} className="col-span-4 col-end-13">
-          <ImageWithHover src={tt1} alt="Temporary Teeth 1" work="Temporary Teeth" isVisible={isVisible17} />
-        </div>
-      </div>
+      ))}
     </div>
   );
 };
