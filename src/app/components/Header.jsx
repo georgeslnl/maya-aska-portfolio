@@ -14,11 +14,12 @@ const Header = () => {
         <header>
             <div className="flex justify-between items-center px-2 mt-5 mb-12">
                 <Link href="/" onClick={handleClick}>
+                {/* TODO: Add typewriter animation? */}
                     <h1 className={`text-3xl lg:text-8xl p-0 ${isAnimating ? 'animate-pulse animate-fast' : ''}`}>
                         Maya-Aska
                     </h1>
                 </Link>
-                <div className="flex gap-4">
+                <div className="flex gap-8">
                     <Link href="/info" className="lg:text-2xl text-base italic hover:scale-110 font-jacquarda text-stone-700 focus:text-red-700">
                         Info
                     </Link>

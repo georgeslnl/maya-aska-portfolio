@@ -24,21 +24,7 @@ const NoiselessPortraitsPage = () => {
                             Photography - Maya-Aska
                         </p>
                     </FadeUp>
-                    <FadeUp className={`col-span-12`}>
-                        <Image
-                            key={1}
-                            src={np1}
-                            alt="Noiseless Portraits 1"
-                            layout="responsive"
-                            width={500}
-                            height={300}
-                        />
-                    </FadeUp>
-                    <FadeUp className='col-span-12 p-4'>
-                        <p className='text-xs lg:text-base'>
-                            Model - Joanna
-                        </p>
-                    </FadeUp>
+                    
                     <FadeUp className={`col-span-12`}>
                         <Image
                             key={2}
@@ -55,7 +41,22 @@ const NoiselessPortraitsPage = () => {
                             Stylist - Isabelle Burnett
                         </p>
                     </FadeUp>
-                    <FadeUp className={`col-span-6 row-start-6`}>
+                    <FadeUp className={`col-span-12`}>
+                        <Image
+                            key={1}
+                            src={np1}
+                            alt="Noiseless Portraits 1"
+                            layout="responsive"
+                            width={500}
+                            height={300}
+                        />
+                    </FadeUp>
+                    <FadeUp className='col-span-12 p-4'>
+                        <p className='text-xs lg:text-base'>
+                            Model - Joanna
+                        </p>
+                    </FadeUp>
+                    {/* <FadeUp className={`col-span-6 row-start-6`}>
                         <Image
                             key={3}
                             src={np3}
@@ -80,7 +81,7 @@ const NoiselessPortraitsPage = () => {
                             Model - Lia <br />
                             Stylist - Isabelle Burnett
                         </p>
-                    </FadeUp>
+                    </FadeUp> */}
                     <FadeUp className={`col-span-12`}>
                         <Image
                             key={5}

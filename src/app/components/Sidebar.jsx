@@ -6,12 +6,12 @@ import pageTurn from '../sounds/page_turn.mp3';
 
 const SideNav = () => {
   const works = [
-    {name: "Gentlewoman", link: "/gentlewoman"},
     {name: "Onna", link: "/onna"},
     {name: "Card", link: "/card"},
+    {name: "Gentlewoman", link: "/gentlewoman"},
     {name: "Noiseless Portraits", link: "/noiseless-portraits"},
-    {name: "Lady Liberty", link: "/lady-liberty"},
-    {name: "Temporary Teeth", link: "/temporary-teeth"},
+    {name: "Roots", link: "/roots"},
+    {name: "Still Life", link: "/still-life"},
   ];
 
   const [play] = useSound(pageTurn);

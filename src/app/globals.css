@@ -26,9 +26,9 @@ body {
   overflow: hidden;
 }
 
-h1 {
+/* h1 {
   font-family: 'Jacquarda Bastarda 9', cursive;
-}
+} */
 
 @layer utilities {
   .text-balance {

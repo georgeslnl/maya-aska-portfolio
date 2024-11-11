@@ -2,7 +2,7 @@ import Image from 'next/image';
 import FadeUp from './FadeUp';
 
 const ImageGrid = ({ images }) => (
-    <div className="grid grid-cols-12 gap-1">
+    <div className="grid grid-cols-12 gap-10">
       {images.map((image, index) => (
         <FadeUp key={index} className={`col-span-${image.span} ${image.rowStart ? `row-start-${image.rowStart}` : ''} ${image.colStart ? `col-start-${image.colStart}` : ''}`}>
         <Image
