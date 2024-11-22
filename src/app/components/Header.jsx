@@ -15,7 +15,7 @@ const Header = () => {
             <div className="flex justify-between items-center px-2 mt-5 mb-12">
                 <Link href="/" onClick={handleClick}>
                 {/* TODO: Add typewriter animation? */}
-                    <h1 className={`text-3xl lg:text-8xl p-0 ${isAnimating ? 'animate-pulse animate-fast' : ''}`}>
+                    <h1 className={`cursor-pointer text-3xl lg:text-8xl p-0 ${isAnimating ? 'animate-pulse animate-fast' : ''}`}>
                         Maya-Aska
                     </h1>
                 </Link>
