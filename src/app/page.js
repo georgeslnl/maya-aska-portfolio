@@ -48,7 +48,7 @@ export default function Home() {
     <div className="mb-20">
     <ImageGrid images={imageData.slice(7, 8)} />
     </div>
-    <div className="mb-20">
+    <div>
     <ImageGrid images={imageData.slice(8)} />
     </div>
     </div>

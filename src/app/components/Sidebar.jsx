@@ -24,7 +24,7 @@ const SideNav = () => {
     >
       <Link 
         href="/works" 
-        className="lg:text-3xl text-lg mb-4 italic focus:text-red-500 focus:outline-none"
+        className="lg:text-3xl text-lg mb-4 italic focus:outline-none"
         aria-haspopup="true"
         aria-expanded="true"
       >
@@ -38,13 +38,13 @@ const SideNav = () => {
         {works.map((work, index) => (
           <li 
             key={index} 
-            className="text-xs lg:text-lg hover:scale-110 cursor-pointer"
+            className="text-xs lg:text-lg hover:scale-105"
             role="none"
           >
             <Link 
               href={work.link}
               onClick={play}
-              className="focus:text-red-500 focus:outline-none"
+              className= "focus:outline-none"
               role="menuitem"
               aria-label={`View ${work.name} photography series`}
             >
