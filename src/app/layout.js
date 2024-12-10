@@ -1,7 +1,6 @@
 import "./globals.css";
 import Layout from "./components/Layout";
-import Head from "next/head";
-import favicon from "./favicon.ico";
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 export const metadata = {
   title: {
@@ -18,9 +17,11 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <Layout>
-        {children}
+          {children}
         </Layout>
-        </body>
+        <SpeedInsights />
+      </body>
     </html>
   );
 }
+
