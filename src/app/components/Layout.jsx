@@ -5,7 +5,7 @@ import SideNav from './Sidebar';
 
 const Layout = ({ children }) => {
   return (
-    <div className="flex flex-col h-screen overflow-hidden px-4">
+    <div className="flex flex-col h-svh overflow-hidden px-4">
       <Header />
       <div className="flex flex-row flex-grow overflow-hidden">
         <SideNav />
