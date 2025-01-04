@@ -1,7 +1,8 @@
-'use client';
 import React from 'react';
 import Header from './Header';
 import SideNav from './Sidebar';
+import Footer from './Footer';
+
 
 const Layout = ({ children }) => {
   return (
@@ -9,14 +10,15 @@ const Layout = ({ children }) => {
       <Header />
       <div className="flex flex-row flex-grow overflow-hidden">
         <SideNav />
-        <main
-          className="flex-grow overflow-auto p-1 flex flex-wrap flex-row justify-center"
+        <div
+          className="overflow-auto p-1 flex flex-wrap"
           tabIndex={1}
           role="region"
           aria-label="Main content"
         >
-          {children}
-        </main>
+          <main className="flex justify-center flex-grow">{children}</main>
+          <Footer />
+        </div>
       </div>
     </div>
   );
