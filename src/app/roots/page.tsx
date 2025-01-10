@@ -30,7 +30,7 @@ const RootPage = () => {
                 <div>
                     <ImageGrid images={imageData.slice(0, 1)} />
                 </div>
-                <div className="my-10 text-center">
+                <div className="text-center">
                     <Credits credits={credits} />
                 </div>
                 <div>

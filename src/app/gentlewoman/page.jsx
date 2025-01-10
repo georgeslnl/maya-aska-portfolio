@@ -13,7 +13,6 @@ export const metadata = {
 };
 
 const imageData = [
-  
   { src: gentleWoman3, alt: "Gentlewoman 3", span: 6 },
   { src: gentleWoman4, alt: "Gentlewoman 4", span: 6 },
   { src: gentleWoman2, alt: "Gentlewoman 2", span: 6 },
