@@ -60,9 +60,9 @@ const SideNav = () => {
         href="https://georgeslnl.github.io/"
         target="_blank"
         rel="noopener noreferrer"
-        className="text-xs hover:scale-105 pb-1"
+        className="text-[10px] lg:text-xs hover:scale-105 pb-1"
       >
-        website by <span className='font-bold'>Georges</span>
+        website by <span className='font-bold'>Georges Linel</span>
       </a>
     </div>
   );
