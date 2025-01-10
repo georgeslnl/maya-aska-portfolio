@@ -1,6 +1,6 @@
 import React from 'react';
 import Maya1 from '../images/onna/onna-9.jpg';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import { GiFleurDeLys } from "react-icons/gi";
 import { GoNorthStar } from "react-icons/go";
 import { GiDragonfly } from "react-icons/gi";

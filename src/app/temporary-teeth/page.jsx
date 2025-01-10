@@ -1,5 +1,5 @@
 import React from 'react';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import tt1 from '../images/temporary-teeth/temporary-teeth-1.jpg';
 import tt2 from '../images/temporary-teeth/temporary-teeth-2.jpg';
 import tt3 from '../images/temporary-teeth/temporary-teeth-3.jpg';
