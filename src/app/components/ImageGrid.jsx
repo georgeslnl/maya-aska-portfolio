@@ -55,8 +55,6 @@ const ImageGrid = ({ images }) => {
             src={image.src}
             alt={image.alt}
             layout="responsive"
-            width={500}
-            height={300}
             priority={index < 2}
           />
         </FadeUp>
