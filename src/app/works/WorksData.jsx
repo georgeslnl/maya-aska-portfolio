@@ -6,7 +6,7 @@ import card1 from '../images/card/card-1.jpg';
 import gentlewoman3 from '../images/gentlewoman/gentlewoman-3.jpg';
 import gentlewoman4 from '../images/gentlewoman/gentlewoman-4.jpg';
 import np1 from '../images/noiseless-portraits/np-1.jpg';
-import np6 from '../images/noiseless-portraits/np-6.jpg';
+import np4 from '../images/noiseless-portraits/np-4.jpg';
 import r1 from '../images/root/root-2.jpg';
 import r2 from '../images/root/root-1.jpg';
 import stillLife1 from '../images/still-life/still life 1.jpg';
@@ -28,6 +28,6 @@ export const worksData = {
     { title: 'Gentlewoman', image: gentlewoman3, alt: 'Gentlewoman 3', href: '/gentlewoman', className: 'sm:col-span-3 sm:col-end-10' },
     { title: 'Gentlewoman', image: gentlewoman4, alt: 'Gentlewoman 4', href: '/gentlewoman', className: 'sm:col-span-3 sm:col-end-13' },
     { title: 'Noiseless Portraits', image: np1, alt: 'Noiseless Portraits 1', href: '/noiseless-portraits', className: 'sm:col-span-4 sm:col-end-9' },
-    { title: 'Noiseless Portraits', image: np6, alt: 'Noiseless Portraits 6', href: '/noiseless-portraits', className: 'sm:col-span-4 sm:col-end-13' },
+    { title: 'Noiseless Portraits', image: np4, alt: 'Noiseless Portraits 6', href: '/noiseless-portraits', className: 'sm:col-span-4 sm:col-end-13' },
   ],
 };

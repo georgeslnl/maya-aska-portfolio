@@ -1,6 +1,4 @@
 import React from 'react';
-import Image from 'next/image';
-import FadeUp from '../components/FadeUp';
 import onna1 from '../images/onna/onna-1.jpg';
 import onna2 from '../images/onna/onna-2.jpg';
 import onna3 from '../images/onna/onna-3.jpg';
