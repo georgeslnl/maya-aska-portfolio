@@ -11,9 +11,15 @@ import r1 from '../images/root/root-2.jpg';
 import r2 from '../images/root/root-1.jpg';
 import stillLife1 from '../images/still-life/still life 1.jpg';
 import stillLife2 from '../images/still-life/still life 2.jpg';
+import pip7 from '../images/portraits-in-paris/pip7.jpg';
+import pip8 from '../images/portraits-in-paris/pip8.jpg';
+import pip9 from '../images/portraits-in-paris/pip9.jpg';
 
 export const worksData = {
   '2024': [
+    { title: 'Portraits In Paris', image: pip7, alt: 'Portraits In Paris 7', href: '/portraits-in-paris', className: 'sm:col-span-3 sm:col-end-7' },
+    { title: 'Portraits In Paris', image: pip8, alt: 'Portraits In Paris 8', href: '/portraits-in-paris', className: 'sm:col-span-3 sm:col-end-10' },
+    { title: 'Portraits In Paris', image: pip9, alt: 'Portraits In Paris 9', href: '/portraits-in-paris', className: 'sm:col-span-3 sm:col-end-13' },
     { title: 'Roots', image: r1, alt: 'Root 1', href: '/roots', className: 'sm:col-span-3 sm:col-end-10' },
     { title: 'Roots', image: r2, alt: 'Root 2', href: '/roots', className: 'sm:col-span-3 sm:col-end-13' },
     { title: 'Still Life', image: stillLife1, alt: 'Still Life 1', href: '/still-life', className: 'sm:col-span-4 sm:col-end-9 sm:row-start-2' },
