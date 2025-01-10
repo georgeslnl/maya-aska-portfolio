@@ -1,5 +1,5 @@
-import onna7 from '../images/onna/onna-7.jpg';
-import onna10 from '../images/onna/onna-10.jpg';
+import onna2 from '../images/onna/onna-2.jpg';
+import onna4 from '../images/onna/onna-4.jpg';
 import card6 from '../images/card/card-6.jpg';
 import card4 from '../images/card/card-4.jpg';
 import card1 from '../images/card/card-1.jpg';
@@ -18,8 +18,8 @@ export const worksData = {
     { title: 'Roots', image: r2, alt: 'Root 2', href: '/roots', className: 'sm:col-span-3 sm:col-end-13' },
     { title: 'Still Life', image: stillLife1, alt: 'Still Life 1', href: '/still-life', className: 'sm:col-span-4 sm:col-end-9 sm:row-start-2' },
     { title: 'Still Life', image: stillLife2, alt: 'Still Life 2', href: '/still-life', className: 'sm:col-span-4 sm:col-end-13 sm:row-start-2' },
-    { title: 'Onna', image: onna7, alt: 'Onna 7', href: '/onna', className: 'sm:col-span-3 sm:col-end-10' },
-    { title: 'Onna', image: onna10, alt: 'Onna 10', href: '/onna', className: 'sm:col-span-3 sm:col-end-13' },
+    { title: 'Onna', image: onna2, alt: 'Onna 7', href: '/onna', className: 'sm:col-span-3 sm:col-end-10' },
+    { title: 'Onna', image: onna4, alt: 'Onna 10', href: '/onna', className: 'sm:col-span-3 sm:col-end-13' },
     { title: 'Card', image: card6, alt: 'Card 6', href: '/card', className: 'sm:col-span-3 sm:col-end-7' },
     { title: 'Card', image: card4, alt: 'Card 4', href: '/card', className: 'sm:col-span-3 sm:col-end-10' },
     { title: 'Card', image: card1, alt: 'Card 1', href: '/card', className: 'sm:col-span-3 sm:col-end-13' },

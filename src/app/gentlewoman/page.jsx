@@ -13,13 +13,11 @@ export const metadata = {
 };
 
 const imageData = [
-  // { src: gentleWoman1, alt: "Gentlewoman 1", span: 6 },
   
   { src: gentleWoman3, alt: "Gentlewoman 3", span: 6 },
   { src: gentleWoman4, alt: "Gentlewoman 4", span: 6 },
   { src: gentleWoman2, alt: "Gentlewoman 2", span: 6 },
   { src: gentleWoman5, alt: "Gentlewoman 5", span: 6 },
-  // { src: gentleWoman6, alt: "Gentlewoman 6", span: 6 },
 ];
 
 const credits = [
