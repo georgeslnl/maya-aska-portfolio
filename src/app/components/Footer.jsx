@@ -9,9 +9,9 @@ const Footer = () => {
                     href="https://georgeslnl.github.io/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm hover:scale-105"
+                    className="text-xs lg:text-sm hover:scale-105"
                 >
-                    website by <span className='font-bold'>Georges</span>
+                    website by <span className='font-bold'>Georges Linel</span>
                 </a>
             </footer>
         </FadeUp>
