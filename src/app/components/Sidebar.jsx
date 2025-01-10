@@ -12,6 +12,7 @@ const SideNav = () => {
     {name: "Noiseless Portraits", link: "/noiseless-portraits"},
     {name: "Roots", link: "/roots"},
     {name: "Still Life", link: "/still-life"},
+    {name: "Portraits In Paris", link: "/portraits-in-paris"},
   ];
 
   const [play] = useSound(pageTurn);
