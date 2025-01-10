@@ -26,7 +26,7 @@ const SideNav = () => {
       >
         <Link
           href="/works"
-          className="lg:text-3xl text-lg mb-4 italic focus:outline-none"
+          className="lg:text-3xl md:text-2xl text-xl mb-4 italic focus:outline-none"
           aria-haspopup="true"
           aria-expanded="true"
         >
@@ -40,7 +40,7 @@ const SideNav = () => {
           {works.map((work, index) => (
             <li
               key={index}
-              className="text-xs lg:text-lg hover:scale-105"
+              className="text-xs md:text-base lg:text-lg hover:scale-105"
               role="none"
             >
               <Link
@@ -60,7 +60,7 @@ const SideNav = () => {
         href="https://georgeslnl.github.io/"
         target="_blank"
         rel="noopener noreferrer"
-        className="text-[10px] lg:text-xs hover:scale-105 pb-1"
+        className="text-[10px] lg:text-xs hover:scale-105 pb-0 absolute bottom-3"
       >
         website by <span className='font-bold'>Georges Linel</span>
       </a>

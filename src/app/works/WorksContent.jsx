@@ -12,7 +12,7 @@ const WorksContent = () => {
       {sortedYears.map((year) => (
         <div key={year}>
           <FadeUp>
-            <p className="text-base lg:text-2xl col-end-12 text-end mt-20 mb-2">{year}</p>
+            <p className="text-base md:text-lg lg:text-2xl col-end-12 text-end mt-20 mb-2">{year}</p>
           </FadeUp>
           <WorkGroup works={worksData[year]} />
         </div>

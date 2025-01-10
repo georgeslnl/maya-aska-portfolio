@@ -25,7 +25,7 @@ const StillLifePage = () => {
 
     return (
         <div className="w-11/12 lg:w-10/12 pb-10">
-            <h2 className='text-base lg:text-2xl mb-8'>Still Life</h2>
+            <h2 className="text-base md:text-lg lg:text-2xl mb-8">Still Life</h2>
             <ImageGrid images={imageData.slice(0, 2)} /> 
             <div className='text-center'>
             <Credits credits={credits} />    
