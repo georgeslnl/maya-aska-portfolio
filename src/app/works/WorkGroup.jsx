@@ -8,7 +8,7 @@ const WorkGroup = ({ works }) => {
   const [play] = useSound(pageTurn);
 
   return (
-    <div className="grid grid-cols-1 gap-y-8 sm:grid-cols-2 lg:grid-cols-12 gap-x-3">
+    <div className="grid grid-cols-1 gap-y-8 md:grid-cols-12 gap-x-3">
       {works.map((work, index) => (
         <WorkItem
           key={index}
