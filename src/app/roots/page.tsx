@@ -16,7 +16,8 @@ const imageData = [
 ];
 
 const credits = [
-    { role: "Model", name: "Kaya Yokoi Arai" },
+    { role: "Photography", name: "Maya-Aska" },
+    { role: "Model", name: "Kaya" },
 ]
 
 
@@ -24,7 +25,7 @@ const credits = [
 const RootPage = () => {
     return (
         <div className="w-11/12 lg:w-10/12 pb-10">
-            <h2 className='text-base lg:text-2xl mb-8'>Root</h2>
+            <h2 className='text-base lg:text-2xl mb-8'>Roots</h2>
             <div>
                 <div>
                     <ImageGrid images={imageData.slice(0, 1)} />

@@ -49,7 +49,6 @@ const TemporaryTeethPage = () => {
                     </FadeUp>
                     <FadeUp className='col-span-12 p-2'>
                         <p className='text-xs lg:text-base'>
-                            Creative Direction - Ruby Sida <br />
                             Photography - Maya-Aska <br />
                             Fashion - Ruby Sida <br />
                             Hair & Makeup - Rina Inata <br />

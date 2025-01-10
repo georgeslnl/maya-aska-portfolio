@@ -46,7 +46,7 @@ const OnnaPage = () => {
             </FadeUp>
             <FadeUp className='col-span-12 p-2'>
                 <p className='text-xs lg:text-base'>
-                    Photography & Creative Direction - Maya-Aska
+                    Photography - Maya-Aska
                 </p>
             </FadeUp>
             

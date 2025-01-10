@@ -20,7 +20,7 @@ const imageData = [
 ];
     
 const credits = [
-    { role: "Creative Direction & Photography", name: "Maya-Aska" },
+    { role: "Photography", name: "Maya-Aska" },
     { role: "Stylist", name: "Moni Jiang" },
     { role: "Hair", name: "Edoardo Colasanti" },
     { role: "Makeup", name: "Sophia Pascale" },
