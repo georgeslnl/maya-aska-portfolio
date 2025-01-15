@@ -28,8 +28,6 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: 'Cormorant Garamond', serif;
-  height: 100%; 
-  overflow: hidden;
 }
 
 /* h1 {

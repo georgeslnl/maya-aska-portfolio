@@ -33,12 +33,10 @@ const CardPage = () => {
 
     return (
         <div className="w-11/12 lg:w-10/12 pb-10">
-            <h2 className='text-base lg:text-2xl mb-8'>Card</h2>
+            <h2 className="text-base md:text-lg lg:text-2xl mb-8">Card</h2>
             <div>
             <ImageGrid images={imageData.slice(0, 2)} />
-            <div className='m-10'>
             <Credits credits={credits} />
-            </div>
             <ImageGrid images={imageData.slice(2)} />
             </div>
         </div>

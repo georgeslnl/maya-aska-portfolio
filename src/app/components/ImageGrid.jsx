@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import FadeUp from './FadeUp';
 
 const ImageGrid = ({ images }) => {
@@ -55,8 +55,6 @@ const ImageGrid = ({ images }) => {
             src={image.src}
             alt={image.alt}
             layout="responsive"
-            width={500}
-            height={300}
             priority={index < 2}
           />
         </FadeUp>

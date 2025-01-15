@@ -1,5 +1,5 @@
 import React from 'react';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import tt1 from '../images/temporary-teeth/temporary-teeth-1.jpg';
 import tt2 from '../images/temporary-teeth/temporary-teeth-2.jpg';
 import tt3 from '../images/temporary-teeth/temporary-teeth-3.jpg';
@@ -14,7 +14,7 @@ const TemporaryTeethPage = () => {
 
     return (
         <div className="w-11/12 lg:w-10/12 pb-10">
-            <h2 className='text-base lg:text-2xl mb-8'>Temporary Teeth</h2>
+            <h2 className="text-base md:text-lg lg:text-2xl mb-8">Temporary Teeth</h2>
             <div>
                 <div className="grid grid-cols-12 gap-1">
                     <FadeUp className="col-span-6">
@@ -49,7 +49,6 @@ const TemporaryTeethPage = () => {
                     </FadeUp>
                     <FadeUp className='col-span-12 p-2'>
                         <p className='text-xs lg:text-base'>
-                            Creative Direction - Ruby Sida <br />
                             Photography - Maya-Aska <br />
                             Fashion - Ruby Sida <br />
                             Hair & Makeup - Rina Inata <br />

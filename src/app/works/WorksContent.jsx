@@ -10,9 +10,9 @@ const WorksContent = () => {
   return (
     <div className="w-11/12 lg:w-10/12 mb-10">
       {sortedYears.map((year) => (
-        <div key={year}>
+        <div key={year} className="mb-20">
           <FadeUp>
-            <p className="text-base lg:text-2xl col-end-12 text-end mt-20 mb-2">{year}</p>
+            <p className="text-base md:text-lg lg:text-2xl col-end-12 text-end mb-2">{year}</p>
           </FadeUp>
           <WorkGroup works={worksData[year]} />
         </div>
