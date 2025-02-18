@@ -11,13 +11,17 @@ const Header = () => {
                         Maya-Aska
                     </h1>
                 </Link>
-                <div className="flex gap-8">
+                <div className="flex gap-8 items-center">
+                    <Link href="https://open.spotify.com/playlist/007NviI7Wo8PX1xxWVVIsZ?si=JDWeo750TGiFIbIaJCtApg&pi=3fzmY6DZR-Wt8" target="_blank" className='lg:text-2xl md:text-lg text-base font-jacquarda italic text-stone-700 opacity-0 hover:opacity-5'>
+                        Secret Link
+                    </Link>
                     <Link href="/info" className="lg:text-2xl md:text-lg text-base italic hover:scale-105 font-jacquarda text-stone-700">
                         Info
                     </Link>
-                    <a href="https://www.instagram.com/mayaxaska/" className="lg:text-2xl md:text-lg  text-base italic hover:scale-105 font-jacquarda text-stone-700">
+                    <Link href="https://www.instagram.com/mayaxaska/" target="_blank" className="lg:text-2xl md:text-lg  text-base italic hover:scale-105 font-jacquarda text-stone-700">
                         Instagram
-                    </a>
+                    </Link>
+
                 </div>
             </div>
         </header>
