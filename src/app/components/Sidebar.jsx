@@ -45,7 +45,7 @@ const SideNav = () => {
             >
               <Link
                 href={work.link}
-                onMouseEnter={play}
+                onClick={play}
                 className="focus:outline-none"
                 role="menuitem"
                 aria-label={`View ${work.name} photography series`}
@@ -59,7 +59,6 @@ const SideNav = () => {
       <a
         href="https://georgeslnl.github.io/"
         target="_blank"
-        rel="noopener noreferrer"
         className="text-[8px] lg:text-xs hover:scale-105 pb-0 absolute bottom-3"
       >
         website by <span className='font-bold'>Georges Linel</span>
