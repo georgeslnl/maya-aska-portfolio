@@ -1,10 +1,8 @@
 import React from 'react';
-import Image from "next/legacy/image";
 import np1 from '../images/noiseless-portraits/np-1.jpg';
 import np2 from '../images/noiseless-portraits/np-2.jpg';
 import np3 from '../images/noiseless-portraits/np-3.jpg';
 import np4 from '../images/noiseless-portraits/np-4.jpg';
-import FadeUp from '../components/FadeUp';
 import ImageGrid from '../components/ImageGrid';
 import Credits from '../components/Credits';
 
@@ -21,8 +19,7 @@ const imageData = [
 
 const credits = [
     { role: "Photography", name: "Maya-Aska" },
-    { role: "Model", name: "Joanna" },
-    { role: "Model", name: "Ellie" },
+    { role: "Models", name: "Joana & Ellie" },
     { role: "Stylist", name: "Isabelle Burnett" },
 ];
 

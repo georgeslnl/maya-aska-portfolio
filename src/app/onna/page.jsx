@@ -18,6 +18,7 @@ const imageData = [
 
 const credits = [
     { role: "Photography", name: "Maya-Aska" },
+    { role: "Models", name: "Rena & Naoko"}
 ];
 
 const OnnaPage = () => {
