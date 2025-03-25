@@ -10,7 +10,7 @@ const Layout = ({ children }) => {
         <SideNav />
         <main
           className="flex-grow overflow-auto p-1 flex flex-wrap flex-row justify-center"
-          // tabIndex={1}
+          tabIndex={1}
           role="region"
           aria-label="Main content"
         >

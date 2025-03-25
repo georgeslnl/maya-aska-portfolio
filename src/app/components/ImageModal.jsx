@@ -1,38 +1,67 @@
 import Image from "next/image";
-import { useEffect } from 'react';
 
 export const ImageModal = ({ images, selectedImage, onClose, onNext, onPrev, selectedIndex }) => {
-    useEffect(() => {
-        const handleEscape = (e) => {
-            e.preventDefault();
-            console.log(e.key);
-          if (e.key === 'Escape' || e.key === ' ') onClose();
-        };
-        window.addEventListener('keydown', handleEscape);
-        return () => window.removeEventListener('keydown', handleEscape);
-      }, [onClose]);
-    
-      if (!selectedImage) return null;
     return (
         selectedImage && (
-            <div
-                className="fixed inset-0 bg-black/90 z-50 p-10 flex items-center justify-center"
-                onClick={onClose}
-            >
-                <button
-                    aria-label="Close Modal"
-                    onClick={onClose}
-                    className="absolute top-4 right-4 text-white hover:text-gray-300"
-                >
-                    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </button>
-
-                <div
-                    className="relative md:w-1/2"
-                    onClick={e => e.stopPropagation()}
-                >
+            <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
+                <div className="relative">
+                    <button
+                        className="absolute top-4 right-4 text-white"
+                        onClick={onClose}
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="h-8 w-8"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M6 18L18 6M6 6l12 12"
+                            />
+                        </svg>
+                    </button>
+                    <button
+                        className="absolute top-1/2 left-4 text-white"
+                        onClick={onPrev}
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="h-8 w-8"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M15 19l-7-7 7-7"
+                            />
+                        </svg>
+                    </button>
+                    <button
+                        className="absolute top-1/2 right-4 text-white"
+                        onClick={onNext}
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="h-8 w-8"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M9 5l7 7-7 7"
+                            />
+                        </svg>
+                    </button>
                     <Image
                         src={selectedImage}
                         alt={images[selectedIndex].alt}
