@@ -45,7 +45,7 @@ const SideNav = () => {
             >
               <Link
                 href={work.link}
-                onMouseEnter={play}
+                onClick={play}
                 className="focus:outline-none"
                 role="menuitem"
                 aria-label={`View ${work.name} photography series`}
