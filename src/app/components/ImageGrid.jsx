@@ -1,8 +1,5 @@
-'use client';
 import Image from "next/legacy/image";
 import FadeUp from './FadeUp';
-import { useState } from "react";
-import { ImageModal } from "./ImageModal";
 
 const ImageGrid = ({ images }) => {
   // Helper to get the correct class string
@@ -43,33 +40,11 @@ const ImageGrid = ({ images }) => {
     return startClasses[colStart] || '';
   };
 
-  const [selectedImage, setSelectedImage] = useState(null);
-  const [selectedIndex, setSelectedIndex] = useState(0);
-
-  const handleNext = () => {
-    const nextIndex =
-      selectedIndex === images.length - 1 ? 0 : selectedIndex + 1;
-    setSelectedImage(images[nextIndex].src);
-    setSelectedIndex(nextIndex);
-  };
-
-  const handlePrev = () => {
-    const prevIndex =
-      selectedIndex === 0 ? images.length - 1 : selectedIndex - 1;
-    setSelectedImage(images[prevIndex].src);
-    setSelectedIndex(prevIndex);
-  };
-
-  const handleClose = () => {
-    setSelectedImage(null);
-    setSelectedIndex(0);
-  }
-
   return (
     <div className="grid grid-cols-4 md:grid-cols-12 gap-4 md:gap-10">
       {images.map((image, index) => (
-        <FadeUp
-          key={index}
+        <FadeUp 
+          key={index} 
           className={`
             ${getSpanClasses(image.span)}
             ${getStartClasses(image.colStart)}
@@ -81,21 +56,9 @@ const ImageGrid = ({ images }) => {
             alt={image.alt}
             layout="responsive"
             priority={index < 2}
-            onClick={() => setSelectedImage(image.src)}
           />
         </FadeUp>
       ))}
-
-      {selectedImage && (
-        <ImageModal
-          images={images}
-          selectedImage={selectedImage}
-          onClose={handleClose}
-          onNext={handleNext}
-          onPrev={handlePrev}
-          selectedIndex={selectedIndex}
-        />
-      )}
     </div>
   );
 };
