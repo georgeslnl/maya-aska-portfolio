@@ -14,7 +14,7 @@ const InfoPage = () => {
     <div className="flex flex-col w-11/12 lg:w-10/12">
       <h2 className="text-base md:text-lg lg:text-2xl mb-8">Info</h2>
       <p className="text-xs md:text-base lg:text-lg ">
-        I am Maya-Aska. I am a London based photographer. My upbringing in Paris, Tokyo and London has shaped a multi-cultural lens for me to examine the world and its traditional and contemporary values. Work experience includes: photography assistant to James Perolls including campaign for Ader Error, production for Wonderland Magazine.
+      Maya-Aska is a London based photographer. Her upbringing in Paris, Tokyo and London has shaped a multi-cultural lens for her to examine the world and its traditional and contemporary values. Commissions include: La Pyae Apothecary, Michelle Tan and Mehdi Studio.
       </p>
       <div className="m-auto my-10 md:w-3/4 lg:w-1/2">
         <Image src={Maya1} alt="Maya Aska" />
