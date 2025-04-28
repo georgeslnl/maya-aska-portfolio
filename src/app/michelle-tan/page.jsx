@@ -38,15 +38,15 @@ const MichelleTanPage = () => {
 
   return (
     <div className="w-11/12 lg:w-10/12 pb-10">
-      <h2 className="text-base md:text-lg lg:text-2xl mb-8">Gentlewoman</h2>
+      <h2 className="text-base md:text-lg lg:text-2xl mb-8">Michelle Tan</h2>
       <div>
         <ImageGrid images={imageData} />
-        <div className='text-xs md:text-sm lg:text-base m-4 lg:m-8 mb-0'>
+        <div className='text-xs md:text-sm lg:text-base mx-4 mt-4 lg:mx-8 lg:mt-8'>
           <FadeUp>
             <p>Campaign for Michelle Tan 2025</p>
           </FadeUp>
         </div>
-        <Credits credits={credits} />
+        <Credits credits={credits} className='text-xs md:text-sm lg:text-base mx-4 lg:mx-8'/>
       </div>
     </div>
   );
