@@ -14,8 +14,16 @@ import stillLife2 from '../images/still-life/still life 2.jpg';
 import pip7 from '../images/portraits-in-paris/pip7.jpg';
 import pip8 from '../images/portraits-in-paris/pip8.jpg';
 import pip9 from '../images/portraits-in-paris/pip9.jpg';
+import tan1 from '../images/michelle-tan/tan1.jpg';
+import tan2 from '../images/michelle-tan/tan2.jpg';
+import tan4 from '../images/michelle-tan/tan4.jpg';
 
 export const worksData = {
+  '2025': [
+    { title: 'Michelle Tan', image: tan1, alt: 'Michelle Tan 1', href: '/michelle-tan', className: 'md:col-span-3 md:col-end-7' },
+    { title: 'Michelle Tan', image: tan4, alt: 'Michelle Tan 4', href: '/michelle-tan', className: 'md:col-span-3 md:col-end-10' },
+    { title: 'Michelle Tan', image: tan2, alt: 'Michelle Tan 2', href: '/michelle-tan', className: 'md:col-span-3 md:col-end-13' },
+  ],
   '2024': [
     { title: 'Portraits In Paris', image: pip7, alt: 'Portraits In Paris 7', href: '/portraits-in-paris', className: 'md:col-span-3 md:col-end-7' },
     { title: 'Portraits In Paris', image: pip8, alt: 'Portraits In Paris 8', href: '/portraits-in-paris', className: 'md:col-span-3 md:col-end-10' },
