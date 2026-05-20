@@ -1,5 +1,4 @@
 'use client';
-import React from 'react';
 import FadeUp from '../components/FadeUp';
 import WorkGroup from './WorkGroup';
 
