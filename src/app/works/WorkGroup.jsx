@@ -6,15 +6,31 @@ const WorkGroup = ({ works }) => {
   const [play] = useSound('/sounds/page_turn.mp3');
 
   return (
-    <div className="grid grid-cols-1 gap-y-8 md:grid-cols-12 gap-x-3" style={{ gridAutoFlow: 'dense' }}>
-      {works.map((work, index) => (
-        <WorkItem
-          key={index}
-          {...work}
-          onClick={play}
-        />
-      ))}
-    </div>
+    <>
+      <div className="flex flex-col gap-y-4 md:hidden">
+        {works.map((work, index) => (
+          <WorkItem
+            key={index}
+            {...work}
+            style={undefined}
+            onClick={play}
+          />
+        ))}
+      </div>
+
+      <div
+        className="hidden md:grid md:grid-cols-12 gap-x-3"
+        style={{ gridAutoFlow: 'dense' }}
+      >
+        {works.map((work, index) => (
+          <WorkItem
+            key={index}
+            {...work}
+            onClick={play}
+          />
+        ))}
+      </div>
+    </>
   );
 };
 

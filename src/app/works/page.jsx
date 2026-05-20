@@ -5,31 +5,37 @@ export const metadata = {
   title: "Works"
 };
 
-const worksThumbnailClasses = {
-  small: 'md:col-span-2',
-  medium: 'md:col-span-3',
-  large: 'md:col-span-4',
-  wide: 'md:col-span-6',
-};
-
 function getWorksThumbnails(project) {
   if (project.worksThumbnails?.length) {
-    return project.worksThumbnails.map((thumbnail, index) => ({
-      title: project.title,
-      href: project.href,
-      image: thumbnail.image,
-      width: thumbnail.width,
-      height: thumbnail.height,
-      alt: thumbnail.alt || `${project.title} thumbnail ${index + 1}`,
-      className: worksThumbnailClasses[thumbnail.layout] || worksThumbnailClasses.mediumRight,
-    }));
+    const colWidths = { small: 2, medium: 3, large: 4, wide: 6 };
+    let currentColEnd = 13;
+
+    return project.worksThumbnails.map((thumbnail, index) => {
+      const colWidth = colWidths[thumbnail.layout] || 3;
+      const colEnd = currentColEnd;
+      currentColEnd -= colWidth;
+
+      return {
+        title: project.title,
+        href: project.href,
+        image: thumbnail.image,
+        width: thumbnail.width,
+        height: thumbnail.height,
+        alt: thumbnail.alt || `${project.title} thumbnail ${index + 1}`,
+        style: {
+          gridColumn: `span ${colWidth} / ${colEnd}`,
+        },
+      };
+    });
   }
 
   if (!project.image) return [];
 
   return [{
     ...project,
-    className: worksThumbnailClasses.medium,
+    style: {
+      gridColumn: 'span 3 / 13',
+    },
   }];
 }
 
@@ -42,10 +48,9 @@ function mergeWorksData(sanityProjects) {
 
     if (!thumbnails.length) return;
 
-    merged[year] = [
-      ...(merged[year] || []),
-      ...thumbnails,
-    ];
+    if (!merged[year]) merged[year] = [];
+
+    merged[year].push({ title: project.title, thumbnails });
   });
 
   return merged;
