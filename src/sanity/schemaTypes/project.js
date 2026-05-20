@@ -1,24 +1,32 @@
 import { defineArrayMember, defineField, defineType } from 'sanity';
 
-const gridSpanOptions = [
-  { title: 'Full width', value: 12 },
-  { title: 'Half width', value: 6 },
-  { title: 'Seven columns', value: 7 },
-  { title: 'Five columns', value: 5 },
-  { title: 'Four columns', value: 4 },
-  { title: 'Three columns', value: 3 },
+const projectImageLayoutOptions = [
+  { title: 'Full width', value: 'full' },
+  { title: 'Half width', value: 'half' },
+  { title: 'Centered portrait', value: 'centeredPortrait' },
+  { title: 'Wide left', value: 'wideLeft' },
+  { title: 'Wide right', value: 'wideRight' },
+  { title: 'Small left', value: 'smallLeft' },
+  { title: 'Small right', value: 'smallRight' },
 ];
 
-const colStartOptions = [
-  { title: 'Automatic', value: 0 },
-  { title: 'Column 2', value: 2 },
-  { title: 'Column 3', value: 3 },
-  { title: 'Column 4', value: 4 },
-  { title: 'Column 5', value: 5 },
-  { title: 'Column 6', value: 6 },
-  { title: 'Column 7', value: 7 },
-  { title: 'Column 8', value: 8 },
+const worksThumbnailLayoutOptions = [
+  { title: 'Small left', value: 'smallLeft' },
+  { title: 'Small middle', value: 'smallMiddle' },
+  { title: 'Small right', value: 'smallRight' },
+  { title: 'Medium left', value: 'mediumLeft' },
+  { title: 'Medium middle', value: 'mediumMiddle' },
+  { title: 'Medium right', value: 'mediumRight' },
+  { title: 'Wide', value: 'wide' },
 ];
+
+  // smallLeft: 'md:col-span-2 md:col-end-7',
+  // smallMiddle: 'md:col-span-2 md:col-end-10',
+  // smallRight: 'md:col-span-2 md:col-end-13',
+  // mediumLeft: 'md:col-span-3 md:col-end-7',
+  // mediumMiddle: 'md:col-span-3 md:col-end-10',
+  // mediumRight: 'md:col-span-3 md:col-end-13',
+  // wide: 'md:col-span-6 md:col-end-13',
 
 const projectImageFields = [
   defineField({
@@ -33,20 +41,17 @@ const projectImageFields = [
     title: 'Alt text',
     type: 'string',
     validation: (Rule) => Rule.required(),
+    description: 'Descriptive alt text for the image, used for accessibility and SEO.',
   }),
   defineField({
-    name: 'span',
-    title: 'Grid width',
-    type: 'number',
-    initialValue: 12,
-    options: { list: gridSpanOptions },
-  }),
-  defineField({
-    name: 'colStart',
-    title: 'Desktop start column',
-    type: 'number',
-    initialValue: 0,
-    options: { list: colStartOptions },
+    name: 'layout',
+    title: 'Page layout',
+    type: 'string',
+    initialValue: 'full',
+    options: {
+      list: projectImageLayoutOptions,
+      layout: 'radio',
+    },
   }),
   defineField({
     name: 'caption',
@@ -68,16 +73,18 @@ export const project = defineType({
     }),
     defineField({
       name: 'slug',
-      title: 'Slug',
+      title: 'URL Slug',
       type: 'slug',
       options: { source: 'title', maxLength: 96 },
       validation: (Rule) => Rule.required(),
+      description: 'Unique URL identifier, auto-generated from title but can be customized. E.g. "my-project".',
     }),
     defineField({
       name: 'year',
       title: 'Year',
       type: 'number',
       validation: (Rule) => Rule.required().min(2000).max(2100),
+      description: 'Year of the project, used for displaying in chronological order in the Works page.',
     }),
     defineField({
       name: 'publishedAt',
@@ -85,23 +92,84 @@ export const project = defineType({
       type: 'datetime',
     }),
     defineField({
+      name: 'showInSidebar',
+      title: 'Show in sidebar',
+      type: 'boolean',
+      initialValue: true,
+      description: 'Published projects appear in the Works sidebar by default.',
+    }),
+    defineField({
+      name: 'worksThumbnails',
+      title: 'Works page thumbnails',
+      type: 'array',
+      description: 'Add one or more thumbnail images for this project on the Works page. The sizes represent the following: Small: 2 columns (1/6 of the page) / Medium: 3 columns (1/4 of the page) / Wide: 6 columns (1/2 of the page).',
+      validation: (Rule) => Rule.custom((value, context) => {
+        if (value?.length || context.document?.mainImage) return true;
+
+        return 'Add at least one Works page thumbnail.';
+      }),
+      of: [
+        defineArrayMember({
+          name: 'worksThumbnail',
+          title: 'Thumbnail',
+          type: 'object',
+          fields: [
+            defineField({
+              name: 'image',
+              title: 'Image',
+              type: 'image',
+              options: { hotspot: true },
+              validation: (Rule) => Rule.required(),
+            }),
+            defineField({
+              name: 'alt',
+              title: 'Alt text',
+              type: 'string',
+              validation: (Rule) => Rule.required(),
+              description: 'Descriptive alt text for the thumbnail image, used for accessibility and SEO.',
+            }),
+            defineField({
+              name: 'layout',
+              title: 'Works page placement',
+              type: 'string',
+              initialValue: 'mediumRight',
+              options: {
+                list: worksThumbnailLayoutOptions,
+                layout: 'dropdown',
+              },
+              description: 'The placement of the thumbnail on the Works page.',
+            }),
+          ],
+          preview: {
+            select: {
+              title: 'alt',
+              subtitle: 'layout',
+              media: 'image',
+            },
+          },
+        }),
+      ],
+    }),
+    defineField({
       name: 'mainImage',
-      title: 'Works page thumbnail',
+      title: 'Legacy works thumbnail',
       type: 'image',
       options: { hotspot: true },
-      validation: (Rule) => Rule.required(),
+      description: 'Older single-thumbnail field. Prefer Works page thumbnails above for new projects.',
+      hidden: true,
     }),
     defineField({
       name: 'mainImageAlt',
-      title: 'Thumbnail alt text',
+      title: 'Legacy thumbnail alt text',
       type: 'string',
-      validation: (Rule) => Rule.required(),
+      hidden: true,
     }),
     defineField({
       name: 'worksGridClass',
-      title: 'Works page desktop placement',
+      title: 'Legacy works page desktop placement',
       type: 'string',
       description: 'Optional Tailwind classes matching the existing works grid, such as md:col-span-3 md:col-end-10.',
+      hidden: true,
     }),
     defineField({
       name: 'content',
@@ -149,18 +217,33 @@ export const project = defineType({
           type: 'object',
           fields: [
             defineField({
+              name: 'columns',
+              title: 'Columns',
+              type: 'number',
+              description: 'Number of credits per line. Choose 1 for a single column or 2 for two columns.',
+              initialValue: 1,
+              options: {
+                list: [
+                  { title: 'One credit per line', value: 1 },
+                  { title: 'Two credits per line', value: 2 },
+                ],
+                layout: 'radio',
+              },
+            }),
+            defineField({
               name: 'credits',
               title: 'Credits',
               type: 'array',
+              description: 'List of credits for this project, add one entry per person/role.',
               of: [
                 defineArrayMember({
                   type: 'object',
                   fields: [
-                    defineField({ name: 'role', title: 'Role', type: 'string' }),
-                    defineField({ name: 'name', title: 'Name', type: 'string' }),
+                    defineField({ name: 'role', title: 'Role', type: 'string', description: 'E.g. "Photography", "Model", "Makeup", etc.' }),
+                    defineField({ name: 'name', title: 'Name', type: 'string', description: 'Full name of the person.' }),
                   ],
                   preview: {
-                    select: { title: 'role', subtitle: 'name' },
+                    select: { subtitle: 'role', title: 'name', },
                   },
                 }),
               ],
@@ -174,7 +257,15 @@ export const project = defineType({
     select: {
       title: 'title',
       subtitle: 'year',
-      media: 'mainImage',
+      thumbnail: 'worksThumbnails.0.image',
+      legacyThumbnail: 'mainImage',
+    },
+    prepare({ title, subtitle, thumbnail, legacyThumbnail }) {
+      return {
+        title,
+        subtitle,
+        media: thumbnail || legacyThumbnail,
+      };
     },
   },
 });

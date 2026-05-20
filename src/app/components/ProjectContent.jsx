@@ -21,7 +21,21 @@ const startClasses = {
   8: 'md:col-start-8',
 };
 
+const layoutClasses = {
+  full: 'col-span-4 md:col-span-12',
+  half: 'col-span-4 md:col-span-6',
+  centeredPortrait: 'col-span-4 md:col-span-6 md:col-start-4',
+  wideLeft: 'col-span-4 md:col-span-7',
+  wideRight: 'col-span-4 md:col-span-7 md:col-start-6',
+  smallLeft: 'col-span-4 md:col-span-4',
+  smallRight: 'col-span-4 md:col-span-4 md:col-start-9',
+};
+
 function getGridClass(block) {
+  if (block.layout && layoutClasses[block.layout]) {
+    return layoutClasses[block.layout];
+  }
+
   return [
     spanClasses[block.span] || spanClasses[12],
     startClasses[block.colStart] || '',
@@ -64,7 +78,7 @@ const ProjectContent = ({ blocks = [] }) => {
         if (block._type === 'creditsBlock') {
           return (
             <div key={block._key || index} className="col-span-4 md:col-span-12">
-              <Credits credits={block.credits || []} />
+              <Credits credits={block.credits || []} columns={block.columns} />
             </div>
           );
         }

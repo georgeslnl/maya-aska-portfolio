@@ -1,26 +1,31 @@
 'use client';
-import React from 'react';
 import Link from 'next/link';
 import useSound from 'use-sound';
 import { usePathname } from 'next/navigation';
 
-const SideNav = () => {
+const staticWorks = [
+  // { name: "Onna", link: "/onna" },
+  // { name: "Card", link: "/card" },
+  // { name: "Gentlewoman", link: "/gentlewoman" },
+  // { name: "Noiseless Portraits", link: "/noiseless-portraits" },
+  { name: "Girls", link: "/girls" },
+  { name: "Atmos", link: "/atmos" },
+  // { name: "Portraits In Paris", link: "/portraits-in-paris" },
+  { name: "Seven Sisters", link: "/seven-sisters" },
+  { name: "Yuura", link: "/yuura" },
+  { name: "Canterbury", link: "/canterbury" },
+  { name: "La Pyae", link: "/la-pyae" },
+  { name: "Roots", link: "/roots" },
+  { name: "Still Life", link: "/still-life" },
+];
+
+const SideNav = ({ cmsWorks = [] }) => {
   const pathname = usePathname();
   const works = [
-    // { name: "Onna", link: "/onna" },
-    // { name: "Card", link: "/card" },
-    // { name: "Gentlewoman", link: "/gentlewoman" },
-    // { name: "Noiseless Portraits", link: "/noiseless-portraits" },
-    { name: "Girls", link: "/girls" },
-    { name: "Atmos", link: "/atmos" },
-    // { name: "Portraits In Paris", link: "/portraits-in-paris" },
-    { name: "Seven Sisters", link: "/seven-sisters" },
-    { name: "Yuura", link: "/yuura" },
-    { name: "Canterbury", link: "/canterbury" },
-    { name: "La Pyae", link: "/la-pyae" },
-    { name: "Roots", link: "/roots" },
-    { name: "Still Life", link: "/still-life" },
+    ...cmsWorks.map((work) => ({ name: work.title, link: work.href })),
+    ...staticWorks,
   ];
+  const showWorksList = pathname === '/works' || works.some((work) => work.link === pathname);
 
   const [play] = useSound('/sounds/page_turn.mp3');
 
@@ -35,11 +40,11 @@ const SideNav = () => {
           href="/works"
           className="lg:text-3xl md:text-2xl text-xl focus:outline-none"
           aria-haspopup="true"
-          aria-expanded={pathname === '/works'}
+          aria-expanded={showWorksList}
         >
           Works
         </Link>
-        {pathname === '/works' && (
+        {showWorksList && (
           <ul
             className="transition-opacity duration-300 mt-3"
             role="menu"

@@ -7,6 +7,7 @@ const imageFields = `
   "width": image.asset->metadata.dimensions.width,
   "height": image.asset->metadata.dimensions.height,
   alt,
+  layout,
   span,
   colStart,
   caption
@@ -18,6 +19,7 @@ const contentFields = `
     ${imageFields}
   },
   _type == "creditsBlock" => {
+    columns,
     credits[]{role, name}
   }
 `;
@@ -28,11 +30,27 @@ export const projectsForWorksQuery = groq`
     title,
     year,
     "href": "/" + slug.current,
+    "showInSidebar": showInSidebar != false,
+    worksThumbnails[]{
+      "image": image.asset->url,
+      "width": image.asset->metadata.dimensions.width,
+      "height": image.asset->metadata.dimensions.height,
+      alt,
+      layout
+    },
     "image": mainImage.asset->url,
     "width": mainImage.asset->metadata.dimensions.width,
     "height": mainImage.asset->metadata.dimensions.height,
     "alt": mainImageAlt,
     "className": worksGridClass
+  }
+`;
+
+export const projectsForNavigationQuery = groq`
+  *[_type == "project" && defined(slug.current) && showInSidebar != false] | order(year desc, publishedAt desc, title asc) {
+    _id,
+    title,
+    "href": "/" + slug.current
   }
 `;
 
@@ -52,20 +70,29 @@ export const projectBySlugQuery = groq`
   }
 `;
 
-export async function getSanityProjectsForWorks() {
-  if (!hasSanityConfig) return [];
+async function fetchFromSanity(query, params = {}) {
+  if (!hasSanityConfig) return null;
 
-  return client.fetch(projectsForWorksQuery, {}, { next: { revalidate: 60 } });
+  try {
+    return await client.fetch(query, params, { next: { revalidate: 60 } });
+  } catch (error) {
+    console.warn('Sanity fetch failed:', error.message);
+    return null;
+  }
+}
+
+export async function getSanityProjectsForWorks() {
+  return (await fetchFromSanity(projectsForWorksQuery)) || [];
+}
+
+export async function getSanityProjectsForNavigation() {
+  return (await fetchFromSanity(projectsForNavigationQuery)) || [];
 }
 
 export async function getSanityProjectSlugs() {
-  if (!hasSanityConfig) return [];
-
-  return client.fetch(projectSlugsQuery, {}, { next: { revalidate: 60 } });
+  return (await fetchFromSanity(projectSlugsQuery)) || [];
 }
 
 export async function getSanityProjectBySlug(slug) {
-  if (!hasSanityConfig) return null;
-
-  return client.fetch(projectBySlugQuery, { slug }, { next: { revalidate: 60 } });
+  return fetchFromSanity(projectBySlugQuery, { slug });
 }
