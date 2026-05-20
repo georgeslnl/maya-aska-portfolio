@@ -6,7 +6,7 @@ describe('Header', () => {
   it('renders the title and navigation links', () => {
     render(<Header />);
     expect(screen.getByText('Maya-Aska')).toBeInTheDocument();
-    expect(screen.getByText('INFO')).toBeInTheDocument();
-    expect(screen.getByText('INSTAGRAM')).toBeInTheDocument();
+    expect(screen.getByText('Info')).toBeInTheDocument();
+    expect(screen.getByText('Instagram')).toBeInTheDocument();
   });
 });

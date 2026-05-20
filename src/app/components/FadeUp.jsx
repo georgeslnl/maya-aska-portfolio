@@ -1,11 +1,10 @@
 'use client';
 import { motion } from 'framer-motion';
 import useSound from 'use-sound';
-import pageTurn from '../sounds/page_turn.mp3';
 
 export default function FadeUp({ children, className, playSound = false }) {
 
-    const [play] = useSound(pageTurn);
+    const [play] = useSound('/sounds/page_turn.mp3');
 
     return (
         <motion.div

@@ -1,22 +1,21 @@
 /** @type {import('next').NextConfig} */
 
-const nextConfig = {
-  webpack: (config, { isServer }) => {
-    // Add a rule to handle MP3 files
-    config.module.rules.push({
-      test: /\.(mp3|wav)$/,
-      use: {
-        loader: 'file-loader',
-        options: {
-          publicPath: '/_next/static/sounds/',
-          outputPath: 'static/sounds/',
-          name: '[name].[ext]',
-          esModule: false,
-        },
-      },
-    });
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-    return config;
+const root = path.dirname(fileURLToPath(import.meta.url));
+
+const nextConfig = {
+  turbopack: {
+    root,
+  },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'cdn.sanity.io',
+      },
+    ],
   },
 };
 

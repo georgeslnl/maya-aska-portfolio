@@ -1,10 +1,8 @@
 'use client';
-import React from 'react';
 import FadeUp from '../components/FadeUp';
 import WorkGroup from './WorkGroup';
-import { worksData } from './WorksData';
 
-const WorksContent = () => {
+const WorksContent = ({ worksData }) => {
   const sortedYears = Object.keys(worksData).sort((a, b) => parseInt(b) - parseInt(a));
 
   return (
@@ -14,7 +12,12 @@ const WorksContent = () => {
           <FadeUp>
             <p className="text-base md:text-lg lg:text-2xl col-end-12 text-end mb-2">{year}</p>
           </FadeUp>
-          <WorkGroup works={worksData[year]} />
+
+          <div className="flex flex-col gap-y-8">
+            {worksData[year].map((project) => (
+              <WorkGroup key={project.title} works={project.thumbnails} />
+            ))}
+          </div>
         </div>
       ))}
     </div>
