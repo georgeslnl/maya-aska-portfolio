@@ -11,22 +11,11 @@ const projectImageLayoutOptions = [
 ];
 
 const worksThumbnailLayoutOptions = [
-  { title: 'Small left', value: 'smallLeft' },
-  { title: 'Small middle', value: 'smallMiddle' },
-  { title: 'Small right', value: 'smallRight' },
-  { title: 'Medium left', value: 'mediumLeft' },
-  { title: 'Medium middle', value: 'mediumMiddle' },
-  { title: 'Medium right', value: 'mediumRight' },
-  { title: 'Wide', value: 'wide' },
+  { title: 'Small (2 columns)', value: 'small' },
+  { title: 'Medium (3 columns)', value: 'medium' },
+  { title: 'Large (4 columns)', value: 'large' },
+  { title: 'Wide (6 columns)', value: 'wide' },
 ];
-
-  // smallLeft: 'md:col-span-2 md:col-end-7',
-  // smallMiddle: 'md:col-span-2 md:col-end-10',
-  // smallRight: 'md:col-span-2 md:col-end-13',
-  // mediumLeft: 'md:col-span-3 md:col-end-7',
-  // mediumMiddle: 'md:col-span-3 md:col-end-10',
-  // mediumRight: 'md:col-span-3 md:col-end-13',
-  // wide: 'md:col-span-6 md:col-end-13',
 
 const projectImageFields = [
   defineField({
@@ -102,7 +91,7 @@ export const project = defineType({
       name: 'worksThumbnails',
       title: 'Works page thumbnails',
       type: 'array',
-      description: 'Add one or more thumbnail images for this project on the Works page. The sizes represent the following: Small: 2 columns (1/6 of the page) / Medium: 3 columns (1/4 of the page) / Wide: 6 columns (1/2 of the page).',
+      description: 'Add one or more thumbnail images for this project on the Works page. Images are positioned automatically right-to-left, in the order uploaded. Choose a size: Small (2 columns, 6 per row), Medium (3 columns, 4 per row), Large (4 columns, 23 per row), Wide (6 columns, 2 per row).',
       validation: (Rule) => Rule.custom((value, context) => {
         if (value?.length || context.document?.mainImage) return true;
 
@@ -130,14 +119,14 @@ export const project = defineType({
             }),
             defineField({
               name: 'layout',
-              title: 'Works page placement',
+              title: 'Size',
               type: 'string',
-              initialValue: 'mediumRight',
+              initialValue: 'medium',
               options: {
                 list: worksThumbnailLayoutOptions,
                 layout: 'dropdown',
               },
-              description: 'The placement of the thumbnail on the Works page.',
+              description: 'Choose the size for this thumbnail. Images are positioned automatically from right to left based on upload order. First image starts at column 13, subsequent images move left.',
             }),
           ],
           preview: {
