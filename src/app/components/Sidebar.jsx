@@ -3,27 +3,11 @@ import Link from 'next/link';
 import useSound from 'use-sound';
 import { usePathname } from 'next/navigation';
 
-const staticWorks = [
-  // { name: "Onna", link: "/onna" },
-  // { name: "Card", link: "/card" },
-  // { name: "Gentlewoman", link: "/gentlewoman" },
-  // { name: "Noiseless Portraits", link: "/noiseless-portraits" },
-  { name: "Girls", link: "/girls" },
-  { name: "Atmos", link: "/atmos" },
-  // { name: "Portraits In Paris", link: "/portraits-in-paris" },
-  { name: "Seven Sisters", link: "/seven-sisters" },
-  { name: "Yuura", link: "/yuura" },
-  { name: "Canterbury", link: "/canterbury" },
-  { name: "La Pyae", link: "/la-pyae" },
-  { name: "Roots", link: "/roots" },
-  { name: "Still Life", link: "/still-life" },
-];
 
 const SideNav = ({ cmsWorks = [] }) => {
   const pathname = usePathname();
   const works = [
     ...cmsWorks.map((work) => ({ name: work.title, link: work.href })),
-    ...staticWorks,
   ];
   const showWorksList = pathname === '/works' || works.some((work) => work.link === pathname);
 
