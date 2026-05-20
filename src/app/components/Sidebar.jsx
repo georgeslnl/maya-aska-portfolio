@@ -2,7 +2,6 @@
 import React from 'react';
 import Link from 'next/link';
 import useSound from 'use-sound';
-import pageTurn from '../sounds/page_turn.mp3';
 import { usePathname } from 'next/navigation';
 
 const SideNav = () => {
@@ -23,7 +22,7 @@ const SideNav = () => {
     { name: "Still Life", link: "/still-life" },
   ];
 
-  const [play] = useSound(pageTurn);
+  const [play] = useSound('/sounds/page_turn.mp3');
 
   return (
     <div className="flex flex-col justify-between min-w-fit px-2 py-1">

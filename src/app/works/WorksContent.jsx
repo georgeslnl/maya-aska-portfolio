@@ -2,9 +2,8 @@
 import React from 'react';
 import FadeUp from '../components/FadeUp';
 import WorkGroup from './WorkGroup';
-import { worksData } from './WorksData';
 
-const WorksContent = () => {
+const WorksContent = ({ worksData }) => {
   const sortedYears = Object.keys(worksData).sort((a, b) => parseInt(b) - parseInt(a));
 
   return (
