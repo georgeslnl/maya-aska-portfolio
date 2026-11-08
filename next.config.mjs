@@ -14,7 +14,9 @@ const isDev = process.env.NODE_ENV !== 'production';
 // React dev tooling (dev overlay, call-stack reconstruction) requires eval()
 // in development. Production builds never use it, so 'unsafe-eval' is only
 // granted for `next dev`.
-const scriptSrc = isDev ? "'self' 'unsafe-inline' 'unsafe-eval'" : "'self' 'unsafe-inline'";
+const scriptSrc = isDev
+  ? "'self' 'unsafe-inline' 'unsafe-eval' https://va.vercel-scripts.com"
+  : "'self' 'unsafe-inline' https://va.vercel-scripts.com";
 // HMR/WebSocket tooling in dev connects over ws://localhost (not wss://).
 const connectSrc = isDev ? "'self' https: wss: ws:" : "'self' https: wss:";
 
@@ -39,7 +41,7 @@ const securityHeaders = [
   { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
   {
     key: 'Permissions-Policy',
-    value: 'camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()',
+    value: 'camera=(), microphone=(), geolocation=(), payment=(), usb=()',
   },
 ];
 

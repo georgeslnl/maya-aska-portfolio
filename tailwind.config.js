@@ -16,8 +16,8 @@ module.exports = withAnimations({
         foreground: "var(--foreground)",
       },
       fontFamily: {
-        'cormorant': ['Cormorant Garamond', 'serif'],
-        'jacquarda': ['Jacquarda Bastarda 9', 'cursive'],
+        'cormorant': ['var(--font-cormorant)', 'serif'],
+        'jacquarda': ['var(--font-jacquarda)', 'cursive'],
       },
       cursor: {
         default: "url('/cursor.png'), default",
