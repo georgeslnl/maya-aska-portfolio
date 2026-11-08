@@ -86,7 +86,12 @@ export const projectBySlugQuery = groq`
 `;
 
 async function fetchFromSanity(query, params = {}) {
-  if (!hasSanityConfig) return null;
+  if (!hasSanityConfig) {
+    console.warn(
+      '[sanity] NEXT_PUBLIC_SANITY_PROJECT_ID / NEXT_PUBLIC_SANITY_DATASET are not configured — rendering without CMS content.'
+    );
+    return null;
+  }
 
   try {
     return await client.fetch(query, params, { next: { revalidate: 60 } });
