@@ -1,6 +1,6 @@
 import React from 'react';
 import Maya1 from '../images/maya-1.jpg';
-import Image from "next/legacy/image";
+import Image from "next/image";
 import { GiFleurDeLys } from "react-icons/gi";
 import { GoNorthStar } from "react-icons/go";
 import { GiDragonfly } from "react-icons/gi";
@@ -24,7 +24,7 @@ const InfoPage = () => {
         Maya-Aska’s commissions include EE72, Huishan Zhang, Atmos and Heroine Magazine, with work featured in Dazed, AnOther Magazine, Women’s Wear Daily, SHOWstudio and 1Granary. 
       </p>
       <div className="m-auto my-10 md:w-3/4 lg:w-1/2">
-        <Image src={Maya1} alt="Maya Aska" />
+        <Image src={Maya1} alt="Maya Aska" className="h-auto w-full" sizes="(max-width: 768px) 100vw, 50vw" />
       </div>
       <div className="p-2 md:mt-auto">
         <div className="flex flex-col md:flex-row items-start justify-between">

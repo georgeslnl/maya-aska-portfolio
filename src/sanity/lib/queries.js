@@ -32,6 +32,7 @@ export const projectsForWorksQuery = groq`
     "href": "/" + slug.current,
     "showInSidebar": showInSidebar != false,
     worksThumbnails[]{
+      _key,
       "image": image.asset->url,
       "width": image.asset->metadata.dimensions.width,
       "height": image.asset->metadata.dimensions.height,
@@ -63,6 +64,7 @@ export const projectSlugsQuery = groq`
 export const homePageQuery = groq`
   *[_type == "homePage"] | order(_updatedAt desc)[0] {
     images[]{
+      _key,
       "url": image.asset->url,
       "width": image.asset->metadata.dimensions.width,
       "height": image.asset->metadata.dimensions.height,

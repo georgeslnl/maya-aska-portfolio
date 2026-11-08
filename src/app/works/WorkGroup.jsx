@@ -1,16 +1,16 @@
 'use client';
-import useSound from 'use-sound';
 import WorkItem from './WorkItem';
+import usePageTurnSound from '@/app/hooks/usePageTurnSound';
 
 const WorkGroup = ({ works }) => {
-  const [play] = useSound('/sounds/page_turn.mp3');
+  const play = usePageTurnSound();
 
   return (
     <>
       <div className="flex flex-col gap-y-4 md:hidden">
         {works.map((work, index) => (
           <WorkItem
-            key={index}
+            key={work._key || index}
             {...work}
             style={undefined}
             onClick={play}
@@ -24,7 +24,7 @@ const WorkGroup = ({ works }) => {
       >
         {works.map((work, index) => (
           <WorkItem
-            key={index}
+            key={work._key || index}
             {...work}
             onClick={play}
           />

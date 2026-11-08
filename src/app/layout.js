@@ -2,6 +2,22 @@ import "./globals.css";
 import Layout from "./components/Layout";
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Analytics } from "@vercel/analytics/react"
+import { Cormorant_Garamond, Jacquarda_Bastarda_9 } from 'next/font/google';
+
+const cormorant = Cormorant_Garamond({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  style: ['normal', 'italic'],
+  display: 'swap',
+  variable: '--font-cormorant',
+});
+
+const jacquarda = Jacquarda_Bastarda_9({
+  subsets: ['latin'],
+  weight: '400',
+  display: 'swap',
+  variable: '--font-jacquarda',
+});
 
 export const metadata = {
   title: {
@@ -16,7 +32,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>
+      <body
+        suppressHydrationWarning
+        className={`${cormorant.variable} ${jacquarda.variable}`}
+      >
         <Layout>
           {children}
         </Layout>
@@ -26,4 +45,3 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
-

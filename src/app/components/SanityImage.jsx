@@ -1,16 +1,17 @@
-import Image from 'next/legacy/image';
+import Image from 'next/image';
 
-const SanityImage = ({ src, alt, width = 1200, height = 800, priority = false }) => {
+const SanityImage = ({ src, alt, width = 1200, height = 800, priority = false, sizes = '(max-width: 768px) 100vw, 50vw' }) => {
   if (!src) return null;
 
   return (
     <Image
       src={src}
       alt={alt || ''}
-      layout="responsive"
       width={width}
       height={height}
       priority={priority}
+      sizes={sizes}
+      className="h-auto w-full"
     />
   );
 };

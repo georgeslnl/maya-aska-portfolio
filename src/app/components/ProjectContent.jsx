@@ -1,25 +1,7 @@
 import Credits from './Credits';
 import FadeUp from './FadeUp';
 import SanityImage from './SanityImage';
-
-const spanClasses = {
-  3: 'col-span-4 md:col-span-3',
-  4: 'col-span-4 md:col-span-4',
-  5: 'col-span-4 md:col-span-5',
-  6: 'col-span-4 md:col-span-6',
-  7: 'col-span-4 md:col-span-7',
-  12: 'col-span-4 md:col-span-12',
-};
-
-const startClasses = {
-  2: 'md:col-start-2',
-  3: 'md:col-start-3',
-  4: 'md:col-start-4',
-  5: 'md:col-start-5',
-  6: 'md:col-start-6',
-  7: 'md:col-start-7',
-  8: 'md:col-start-8',
-};
+import { getGridSpanClass, getGridColStartClass } from '@/lib/gridClasses';
 
 const layoutClasses = {
   full: 'col-span-4 md:col-span-12',
@@ -37,8 +19,8 @@ function getGridClass(block) {
   }
 
   return [
-    spanClasses[block.span] || spanClasses[12],
-    startClasses[block.colStart] || '',
+    getGridSpanClass(block.span) || getGridSpanClass(12),
+    getGridColStartClass(block.colStart),
   ].filter(Boolean).join(' ');
 }
 
@@ -49,6 +31,9 @@ const ProjectContent = ({ blocks = [] }) => {
     <div className="grid grid-cols-4 md:grid-cols-12 gap-4 md:gap-10">
       {blocks.map((block, index) => {
         if (block._type === 'projectImage') {
+          const isFullWidth = !block.layout
+            ? block.span >= 11
+            : block.layout === 'full';
           return (
             <FadeUp key={block._key || index} className={getGridClass(block)}>
               <SanityImage
@@ -57,6 +42,7 @@ const ProjectContent = ({ blocks = [] }) => {
                 width={block.width}
                 height={block.height}
                 priority={index < 2}
+                sizes={isFullWidth ? '(max-width: 768px) 100vw, 83vw' : '(max-width: 768px) 100vw, 50vw'}
               />
               {block.caption ? (
                 <p className="mt-2 text-xs md:text-sm">{block.caption}</p>

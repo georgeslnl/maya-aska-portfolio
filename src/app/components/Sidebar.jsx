@@ -1,6 +1,6 @@
 'use client';
 import Link from 'next/link';
-import useSound from 'use-sound';
+import usePageTurnSound from '@/app/hooks/usePageTurnSound';
 import { usePathname } from 'next/navigation';
 
 
@@ -11,7 +11,7 @@ const SideNav = ({ cmsWorks = [] }) => {
   ];
   const showWorksList = pathname === '/works' || works.some((work) => work.link === pathname);
 
-  const [play] = useSound('/sounds/page_turn.mp3');
+  const play = usePageTurnSound();
 
   return (
     <div className="flex flex-col justify-between min-w-fit px-2 py-1">
@@ -36,7 +36,7 @@ const SideNav = ({ cmsWorks = [] }) => {
           >
             {works.map((work, index) => (
               <li
-                key={index}
+                key={work.link || index}
                 className="text-xs md:text-base lg:text-lg hover:scale-105 text-gray-500"
                 role="none"
               >
@@ -57,6 +57,7 @@ const SideNav = ({ cmsWorks = [] }) => {
       <a
         href="https://georgeslnl.github.io/"
         target="_blank"
+        rel="noopener noreferrer"
         className="text-[8px] lg:text-xs hover:scale-105 pb-0 absolute bottom-3"
       >
         website by <span className="font-bold">Georges Linel</span>
