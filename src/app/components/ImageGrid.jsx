@@ -1,4 +1,5 @@
 import Image from "next/legacy/image";
+import Link from 'next/link';
 import FadeUp from './FadeUp';
 
 const ImageGrid = ({ images }) => {
@@ -51,12 +52,27 @@ const ImageGrid = ({ images }) => {
             ${image.rowStart ? `row-start-${image.rowStart}` : ''}
           `.trim()}
         >
-          <Image
-            src={image.src}
-            alt={image.alt}
-            layout="responsive"
-            priority={index < 2}
-          />
+          {image.href ? (
+            <Link href={image.href} className="block hover:opacity-80 transition-opacity duration-300">
+              <Image
+                src={image.src}
+                alt={image.alt}
+                layout="responsive"
+                width={image.width}
+                height={image.height}
+                priority={index < 2}
+              />
+            </Link>
+          ) : (
+            <Image
+              src={image.src}
+              alt={image.alt}
+              layout="responsive"
+              width={image.width}
+              height={image.height}
+              priority={index < 2}
+            />
+          )}
         </FadeUp>
       ))}
     </div>

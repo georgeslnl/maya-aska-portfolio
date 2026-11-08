@@ -60,6 +60,19 @@ export const projectSlugsQuery = groq`
   }
 `;
 
+export const homePageQuery = groq`
+  *[_type == "homePage"] | order(_updatedAt desc)[0] {
+    images[]{
+      "url": image.asset->url,
+      "width": image.asset->metadata.dimensions.width,
+      "height": image.asset->metadata.dimensions.height,
+      alt,
+      layout,
+      "href": "/" + project->slug.current
+    }
+  }
+`;
+
 export const projectBySlugQuery = groq`
   *[_type == "project" && slug.current == $slug][0] {
     _id,
@@ -95,4 +108,8 @@ export async function getSanityProjectSlugs() {
 
 export async function getSanityProjectBySlug(slug) {
   return fetchFromSanity(projectBySlugQuery, { slug });
+}
+
+export async function getSanityHomePage() {
+  return fetchFromSanity(homePageQuery);
 }

@@ -30,14 +30,14 @@ const SideNav = ({ cmsWorks = [] }) => {
         </Link>
         {showWorksList && (
           <ul
-            className="transition-opacity duration-300 mt-3"
+            className="transition-opacity duration-300 mt-3 gap-2 flex flex-col "
             role="menu"
             aria-label="Photography works"
           >
             {works.map((work, index) => (
               <li
                 key={index}
-                className="text-xs md:text-base lg:text-sm hover:scale-105 text-gray-500"
+                className="text-xs md:text-base lg:text-lg hover:scale-105 text-gray-500"
                 role="none"
               >
                 <Link
