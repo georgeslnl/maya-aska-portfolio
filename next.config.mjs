@@ -9,13 +9,22 @@ const root = path.dirname(fileURLToPath(import.meta.url));
 // websockets/CDN assets; connect-src/img-src are kept permissive on purpose).
 // The next/image optimizer host allowlist is separately enforced via
 // images.remotePatterns below.
+const isDev = process.env.NODE_ENV !== 'production';
+
+// React dev tooling (dev overlay, call-stack reconstruction) requires eval()
+// in development. Production builds never use it, so 'unsafe-eval' is only
+// granted for `next dev`.
+const scriptSrc = isDev ? "'self' 'unsafe-inline' 'unsafe-eval'" : "'self' 'unsafe-inline'";
+// HMR/WebSocket tooling in dev connects over ws://localhost (not wss://).
+const connectSrc = isDev ? "'self' https: wss: ws:" : "'self' https: wss:";
+
 const contentSecurityPolicy = [
   "default-src 'self'",
-  "script-src 'self' 'unsafe-inline'",
+  `script-src ${scriptSrc}`,
   "style-src 'self' 'unsafe-inline'",
   'img-src \'self\' data: blob: https:',
   "font-src 'self' data:",
-  'connect-src \'self\' https: wss:',
+  `connect-src ${connectSrc}`,
   "object-src 'none'",
   "frame-ancestors 'self'",
   "base-uri 'self'",
