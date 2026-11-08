@@ -3,7 +3,6 @@ import Link from 'next/link';
 import FadeUp from './FadeUp';
 
 const ImageGrid = ({ images }) => {
-  // Helper to get the correct class string
   const getSpanClasses = (span) => {
     const spanClasses = {
       1: 'col-span-4 md:col-span-1',
@@ -40,6 +39,24 @@ const ImageGrid = ({ images }) => {
     };
     return startClasses[colStart] || '';
   };
+  const getRowStartClasses = (rowStart) => {
+    if (!rowStart) return '';
+    const rowStartClasses = {
+      1: 'row-start-1',
+      2: 'row-start-2',
+      3: 'row-start-3',
+      4: 'row-start-4',
+      5: 'row-start-5',
+      6: 'row-start-6',
+      7: 'row-start-7',
+      8: 'row-start-8',
+      9: 'row-start-9',
+      10: 'row-start-10',
+      11: 'row-start-11',
+      12: 'row-start-12'
+    };
+    return rowStartClasses[rowStart] || '';
+  };
 
   return (
     <div className="grid grid-cols-4 md:grid-cols-12 gap-4 md:gap-10">
@@ -49,7 +66,7 @@ const ImageGrid = ({ images }) => {
           className={`
             ${getSpanClasses(image.span)}
             ${getStartClasses(image.colStart)}
-            ${image.rowStart ? `row-start-${image.rowStart}` : ''}
+            ${getRowStartClasses(image.rowStart)}
           `.trim()}
         >
           {image.href ? (

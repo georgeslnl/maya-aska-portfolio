@@ -1,52 +1,32 @@
-export default function sitemap() {
-    return [
-      {
-        url: "https://maya-aska.com/",
-        lastModified: new Date(),
-        changeFrequency: 'yearly',
-        priority: 1,
-      },
-      {
-        url: "https://maya-aska.com/info",
-        lastModified: new Date(),
-        changeFrequency: 'yearly',
-        priority: 0.8,
-      },
-      {
-        url: "https://maya-aska.com/card",
-        lastModified: new Date(),
-        changeFrequency: 'yearly',
-        priority: 0.6,
-      },
-      {
-        url: "https://maya-aska.com/lady-liberty",
-        lastModified: new Date(),
-        changeFrequency: 'yearly',
-        priority: 0.6,
-      },
-      {
-        url: "https://maya-aska.com/noiseless-portraits",
-        lastModified: new Date(),
-        changeFrequency: 'yearly',
-        priority: 0.6,
-      },
-      {
-        url: "https://maya-aska.com/temporary-teeth",
-        lastModified: new Date(),
-        changeFrequency: 'yearly',
-        priority: 0.6,
-      },
-      {
-        url: "https://maya-aska.com/onna",
-        lastModified: new Date(),
-        changeFrequency: 'yearly',
-        priority: 0.6,
-      },
-      {
-        url: "https://maya-aska.com/gentle-woman",
-        lastModified: new Date(),
-        changeFrequency: 'yearly',
-        priority: 0.6,
-      }
-    ];
-  }
+import { getSanityProjectSlugs } from '@/sanity/lib/queries';
+
+const BASE_URL = 'https://maya-aska.com';
+
+const staticPages = [
+  { path: '/', changeFrequency: 'yearly', priority: 1 },
+  { path: '/works', changeFrequency: 'yearly', priority: 0.9 },
+  { path: '/info', changeFrequency: 'yearly', priority: 0.8 },
+];
+
+export default async function sitemap() {
+  const projects = await getSanityProjectSlugs();
+  const lastModified = new Date();
+
+  const staticEntries = staticPages.map((page) => ({
+    url: `${BASE_URL}${page.path}`,
+    lastModified,
+    changeFrequency: page.changeFrequency,
+    priority: page.priority,
+  }));
+
+  const projectEntries = projects
+    .filter((project) => project.slug)
+    .map((project) => ({
+      url: `${BASE_URL}/${project.slug}`,
+      lastModified,
+      changeFrequency: 'yearly',
+      priority: 0.6,
+    }));
+
+  return [...staticEntries, ...projectEntries];
+}
