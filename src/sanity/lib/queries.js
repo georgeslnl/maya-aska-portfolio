@@ -2,17 +2,6 @@ import { groq } from 'next-sanity';
 import { client } from './client';
 import { hasSanityConfig } from '../env';
 
-const imageFields = `
-  "url": image.asset->url,
-  "width": image.asset->metadata.dimensions.width,
-  "height": image.asset->metadata.dimensions.height,
-  alt,
-  layout,
-  span,
-  colStart,
-  caption
-`;
-
 const imageRowFields = `
   gap,
   align,
@@ -31,9 +20,6 @@ const imageRowFields = `
 
 const contentFields = `
   ...,
-  _type == "projectImage" => {
-    ${imageFields}
-  },
   _type == "imageRow" => {
     ${imageRowFields}
   },
@@ -57,12 +43,7 @@ export const projectsForWorksQuery = groq`
       "height": image.asset->metadata.dimensions.height,
       alt,
       layout
-    },
-    "image": mainImage.asset->url,
-    "width": mainImage.asset->metadata.dimensions.width,
-    "height": mainImage.asset->metadata.dimensions.height,
-    "alt": mainImageAlt,
-    "className": worksGridClass
+    }
   }
 `;
 

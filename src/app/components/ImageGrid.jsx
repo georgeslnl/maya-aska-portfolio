@@ -3,8 +3,6 @@ import Link from 'next/link';
 import FadeUp from './FadeUp';
 import {
   getGridSpanClass,
-  getGridColStartClass,
-  getGridRowStartClass,
 } from '@/lib/gridClasses';
 
 const ImageGrid = ({ images }) => {
@@ -15,8 +13,6 @@ const ImageGrid = ({ images }) => {
           key={image._key || index}
           className={[
             getGridSpanClass(image.span) || 'col-span-4',
-            getGridColStartClass(image.colStart),
-            getGridRowStartClass(image.rowStart),
           ].filter(Boolean).join(' ')}
         >
           {image.href ? (

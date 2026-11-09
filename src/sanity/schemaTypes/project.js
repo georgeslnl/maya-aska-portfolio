@@ -1,15 +1,5 @@
 import { defineArrayMember, defineField, defineType } from 'sanity';
 
-const projectImageLayoutOptions = [
-  { title: 'Full width', value: 'full' },
-  { title: 'Half width', value: 'half' },
-  { title: 'Centered portrait', value: 'centeredPortrait' },
-  { title: 'Wide left', value: 'wideLeft' },
-  { title: 'Wide right', value: 'wideRight' },
-  { title: 'Small left', value: 'smallLeft' },
-  { title: 'Small right', value: 'smallRight' },
-];
-
 const imageRowSizeOptions = [
   { title: 'Full width (12/12)', value: 'full' },
   { title: 'Two thirds (8/12)', value: 'twoThirds' },
@@ -36,7 +26,7 @@ const imageRowAlignOptions = [
   { title: 'Right', value: 'right' },
 ];
 
-// Fields for an image placed on a row (new system).
+// Fields for an image placed on a row.
 const imageRowImageFields = [
   defineField({
     name: 'image',
@@ -76,38 +66,6 @@ const worksThumbnailLayoutOptions = [
   { title: 'Medium (3 columns)', value: 'medium' },
   { title: 'Large (4 columns)', value: 'large' },
   { title: 'Wide (6 columns)', value: 'wide' },
-];
-
-const projectImageFields = [
-  defineField({
-    name: 'image',
-    title: 'Image',
-    type: 'image',
-    options: { hotspot: true },
-    validation: (Rule) => Rule.required(),
-  }),
-  defineField({
-    name: 'alt',
-    title: 'Alt text',
-    type: 'string',
-    validation: (Rule) => Rule.required(),
-    description: 'Descriptive alt text for the image, used for accessibility and SEO.',
-  }),
-  defineField({
-    name: 'layout',
-    title: 'Page layout',
-    type: 'string',
-    initialValue: 'full',
-    options: {
-      list: projectImageLayoutOptions,
-      layout: 'radio',
-    },
-  }),
-  defineField({
-    name: 'caption',
-    title: 'Caption',
-    type: 'string',
-  }),
 ];
 
 export const project = defineType({
@@ -153,8 +111,8 @@ export const project = defineType({
       title: 'Works page thumbnails',
       type: 'array',
       description: 'Add one or more thumbnail images for this project on the Works page. Images are positioned automatically right-to-left, in the order uploaded. Choose a size: Small (2 columns, 6 per row), Medium (3 columns, 4 per row), Large (4 columns, 23 per row), Wide (6 columns, 2 per row).',
-      validation: (Rule) => Rule.custom((value, context) => {
-        if (value?.length || context.document?.mainImage) return true;
+      validation: (Rule) => Rule.custom((value) => {
+        if (value?.length) return true;
 
         return 'Add at least one Works page thumbnail.';
       }),
@@ -199,27 +157,6 @@ export const project = defineType({
           },
         }),
       ],
-    }),
-    defineField({
-      name: 'mainImage',
-      title: 'Legacy works thumbnail',
-      type: 'image',
-      options: { hotspot: true },
-      description: 'Older single-thumbnail field. Prefer Works page thumbnails above for new projects.',
-      hidden: true,
-    }),
-    defineField({
-      name: 'mainImageAlt',
-      title: 'Legacy thumbnail alt text',
-      type: 'string',
-      hidden: true,
-    }),
-    defineField({
-      name: 'worksGridClass',
-      title: 'Legacy works page desktop placement',
-      type: 'string',
-      description: 'Optional Tailwind classes matching the existing works grid, such as md:col-span-3 md:col-end-10.',
-      hidden: true,
     }),
     defineField({
       name: 'content',
@@ -329,21 +266,6 @@ export const project = defineType({
           },
         }),
         defineArrayMember({
-          name: 'projectImage',
-          title: 'Image (legacy)',
-          type: 'object',
-          description: 'Legacy standalone image block. Prefer Image row for new content.',
-          hidden: true,
-          fields: projectImageFields,
-          preview: {
-            select: {
-              title: 'alt',
-              subtitle: 'layout',
-              media: 'image',
-            },
-          },
-        }),
-        defineArrayMember({
           name: 'textBlock',
           title: 'Text',
           type: 'object',
@@ -413,13 +335,12 @@ export const project = defineType({
       title: 'title',
       subtitle: 'year',
       thumbnail: 'worksThumbnails.0.image',
-      legacyThumbnail: 'mainImage',
     },
-    prepare({ title, subtitle, thumbnail, legacyThumbnail }) {
+    prepare({ title, subtitle, thumbnail }) {
       return {
         title,
         subtitle,
-        media: thumbnail || legacyThumbnail,
+        media: thumbnail,
       };
     },
   },

@@ -33,29 +33,10 @@ export const gridColStartClasses = {
   12: 'md:col-start-12',
 };
 
-export const gridRowStartClasses = {
-  1: 'row-start-1',
-  2: 'row-start-2',
-  3: 'row-start-3',
-  4: 'row-start-4',
-  5: 'row-start-5',
-  6: 'row-start-6',
-  7: 'row-start-7',
-  8: 'row-start-8',
-  9: 'row-start-9',
-  10: 'row-start-10',
-  11: 'row-start-11',
-  12: 'row-start-12',
-};
-
 export function getGridSpanClass(span) {
   return gridSpanClasses[span];
 }
 
 export function getGridColStartClass(colStart) {
   return gridColStartClasses[colStart] || '';
-}
-
-export function getGridRowStartClass(rowStart) {
-  return gridRowStartClasses[rowStart] || '';
 }
