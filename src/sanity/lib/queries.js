@@ -13,10 +13,29 @@ const imageFields = `
   caption
 `;
 
+const imageRowFields = `
+  gap,
+  align,
+  "extraSpaceAfter": extraSpaceAfter == true,
+  "reduceSpaceBelow": reduceSpaceBelow == true,
+  images[]{
+    _key,
+    "url": image.asset->url,
+    "width": image.asset->metadata.dimensions.width,
+    "height": image.asset->metadata.dimensions.height,
+    alt,
+    size,
+    caption
+  }
+`;
+
 const contentFields = `
   ...,
   _type == "projectImage" => {
     ${imageFields}
+  },
+  _type == "imageRow" => {
+    ${imageRowFields}
   },
   _type == "creditsBlock" => {
     columns,

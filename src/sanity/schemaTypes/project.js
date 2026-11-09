@@ -10,6 +10,67 @@ const projectImageLayoutOptions = [
   { title: 'Small right', value: 'smallRight' },
 ];
 
+const imageRowSizeOptions = [
+  { title: 'Full width (12/12)', value: 'full' },
+  { title: 'Two thirds (8/12)', value: 'twoThirds' },
+  { title: 'Half (6/12)', value: 'half' },
+  { title: 'Third (4/12)', value: 'third' },
+];
+
+const imageRowSizeSpans = {
+  full: 12,
+  twoThirds: 8,
+  half: 6,
+  third: 4,
+};
+
+const imageRowGapOptions = [
+  { title: 'Tight', value: 'tight' },
+  { title: 'Normal', value: 'normal' },
+  { title: 'Loose', value: 'loose' },
+];
+
+const imageRowAlignOptions = [
+  { title: 'Left', value: 'left' },
+  { title: 'Centered', value: 'center' },
+  { title: 'Right', value: 'right' },
+];
+
+// Fields for an image placed on a row (new system).
+const imageRowImageFields = [
+  defineField({
+    name: 'image',
+    title: 'Image',
+    type: 'image',
+    options: { hotspot: true },
+    validation: (Rule) => Rule.required(),
+  }),
+  defineField({
+    name: 'alt',
+    title: 'Alt text',
+    type: 'string',
+    validation: (Rule) => Rule.required(),
+    description: 'Descriptive alt text for the image, used for accessibility and SEO.',
+  }),
+  defineField({
+    name: 'size',
+    title: 'Size',
+    type: 'string',
+    initialValue: 'half',
+    options: {
+      list: imageRowSizeOptions,
+      layout: 'dropdown',
+    },
+    description:
+      'Width of this image within its row: 4, 6, 8 or 12 of 12 columns. Works for portrait and landscape images alike — the aspect ratio comes from the image itself.',
+  }),
+  defineField({
+    name: 'caption',
+    title: 'Caption',
+    type: 'string',
+  }),
+];
+
 const worksThumbnailLayoutOptions = [
   { title: 'Small (2 columns)', value: 'small' },
   { title: 'Medium (3 columns)', value: 'medium' },
@@ -166,13 +227,118 @@ export const project = defineType({
       type: 'array',
       of: [
         defineArrayMember({
-          name: 'projectImage',
-          title: 'Image',
+          name: 'imageRow',
+          title: 'Image row',
           type: 'object',
+          fields: [
+            defineField({
+              name: 'images',
+              title: 'Images',
+              type: 'array',
+              description:
+                'One or more images displayed side by side on the same line. Add up to 3; their sizes should add up to 12 columns.',
+              validation: (Rule) => [
+                Rule.required().min(1),
+                Rule.max(3).error('A row can hold at most 3 images. Use a new Image row below instead.'),
+                Rule.custom((images) => {
+                  const total = images?.reduce((sum, img) => sum + (imageRowSizeSpans[img?.size] || 6), 0);
+                  if (total <= 12) return true;
+                  return {
+                    message: `These sizes fill ${total} of 12 columns. Reduce image sizes so they fit on one line.`,
+                    level: 'warning',
+                  };
+                }),
+              ],
+              of: [
+                defineArrayMember({
+                  name: 'imageRowImage',
+                  title: 'Image',
+                  type: 'object',
+                  fields: imageRowImageFields,
+                  preview: {
+                    select: {
+                      title: 'alt',
+                      subtitle: 'size',
+                      media: 'image',
+                    },
+                  },
+                }),
+              ],
+            }),
+            defineField({
+              name: 'gap',
+              title: 'Spacing between images',
+              type: 'string',
+              initialValue: 'normal',
+              options: {
+                list: imageRowGapOptions,
+                layout: 'radio',
+              },
+              description: 'Horizontal space between the images on this row.',
+            }),
+            defineField({
+              name: 'align',
+              title: 'Alignment',
+              type: 'string',
+              initialValue: 'left',
+              options: {
+                list: imageRowAlignOptions,
+                layout: 'radio',
+              },
+              description: 'Only applies when the images do not fill the full page width.',
+            }),
+            defineField({
+              name: 'extraSpaceAfter',
+              title: 'Extra space below',
+              type: 'boolean',
+              initialValue: false,
+              description: 'Add extra vertical breathing room after this row (e.g. before a section break).',
+            }),
+            defineField({
+              name: 'reduceSpaceBelow',
+              title: 'Tighter space below',
+              type: 'boolean',
+              initialValue: false,
+              description:
+                'Reduce the usual vertical gap between this row and the next block for more compact groupings.',
+              validation: (Rule) =>
+                Rule.custom((value, context) => {
+                  if (!value || !context.parent?.extraSpaceAfter) return true;
+                  return {
+                    message: 'Both "Extra space below" and "Tighter space below" are set — pick one.',
+                    level: 'warning',
+                  };
+                }),
+            }),
+          ],
+          preview: {
+            select: {
+              media: 'images.0.image',
+              title: 'images.0.alt',
+              count: 'images',
+              gap: 'gap',
+            },
+            prepare({ media, title, count, gap }) {
+              const imageCount = Array.isArray(count) ? count.length : 0;
+              return {
+                title,
+                subtitle: `${imageCount} image${imageCount === 1 ? '' : 's'}${gap ? ` — ${gap} spacing` : ''}`,
+                media,
+              };
+            },
+          },
+        }),
+        defineArrayMember({
+          name: 'projectImage',
+          title: 'Image (legacy)',
+          type: 'object',
+          description: 'Legacy standalone image block. Prefer Image row for new content.',
+          hidden: true,
           fields: projectImageFields,
           preview: {
             select: {
               title: 'alt',
+              subtitle: 'layout',
               media: 'image',
             },
           },
